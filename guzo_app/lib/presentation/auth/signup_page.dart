@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:guzo_app/presentation/home.dart';
+import 'package:guzo_app/presentation/host_page.dart';
 
 import '../theme/app_theme.dart';
 
@@ -131,7 +131,7 @@ class _SignUpState extends State<SignUp> {
 
   void navigateToHome() {
     Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return const Home();
+      return const HostPage();
     })));
   }
 

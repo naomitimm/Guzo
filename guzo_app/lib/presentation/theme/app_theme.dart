@@ -48,10 +48,6 @@ class AppTheme {
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Color.fromARGB(255, 3, 174, 131),
           hoverColor: Colors.black),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Color.fromARGB(255, 3, 174, 131),
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.white),
     );
   }
 
@@ -67,12 +63,8 @@ class AppTheme {
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
             backgroundColor: Color.fromARGB(255, 3, 174, 131),
             hoverColor: Colors.white),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Color.fromARGB(255, 3, 174, 131),
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.black),
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: Colors.black,
         ));
   }
 }
