@@ -20,7 +20,9 @@ class _LogInState extends State<LogIn> {
       body: ListView(children: [
         Container(
           height: 300,
-          color: const Color.fromARGB(255, 3, 174, 131),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/ob1.jpg"), fit: BoxFit.cover)),
           child: Stack(children: [
             IconButton(
                 onPressed: () {},

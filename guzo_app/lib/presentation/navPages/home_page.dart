@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_theme.dart';
@@ -26,15 +27,8 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.list),
-                  iconSize: 40,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.account_circle_outlined),
-                  iconSize: 40,
-                ),
+                    onPressed: () {},
+                    icon: const FaIcon(FontAwesomeIcons.bars)),
               ],
             ),
             const Divider(
@@ -43,7 +37,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Text("Discover",
                 style: GoogleFonts.merriweatherSans(
-                  textStyle: darkText.textTheme.headline2,
+                  textStyle: const TextStyle(fontSize: 30),
                 )),
             const SizedBox(
               height: 20,
@@ -54,14 +48,14 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text("Sights",
                       style: GoogleFonts.merriweatherSans(
-                        textStyle: darkText.textTheme.bodyMedium,
+                        textStyle: const TextStyle(fontSize: 18),
                       )),
                   const SizedBox(
                     width: 50,
                   ),
                   Text("Places",
                       style: GoogleFonts.merriweatherSans(
-                        textStyle: darkText.textTheme.bodyMedium,
+                        textStyle: const TextStyle(fontSize: 18),
                       )),
                 ],
               ),
@@ -102,7 +96,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text("Gondar Castel",
                   style: GoogleFonts.merriweatherSans(
-                    textStyle: darkText.textTheme.bodyMedium,
+                    textStyle: const TextStyle(fontSize: 20),
                   )),
               Row(
                 children: [
