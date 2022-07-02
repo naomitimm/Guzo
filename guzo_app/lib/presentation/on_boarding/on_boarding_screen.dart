@@ -29,17 +29,17 @@ class _OnBoardingState extends State<OnBoarding> {
                 "Guzo",
                 "Relax & Enjoy",
                 "Experience the world's best adventures Lorem ipsum dolor sit amet, consectetur adipiscing elit. . Donec ac tristique neque.",
-                "assets/float.png"),
+                "assets/on_boarding/float.png"),
             customContainer(
                 "Guzo",
                 "Get Off Track",
                 "Why rush? When you can relax and marvel at the wonders of the world. elit. . Donec ac tristique neque.",
-                "assets/camp.png"),
+                "assets/on_boarding/camp.png"),
             customContainer(
                 "Guzo",
                 "Need Vacation?",
                 "Take a trip with us by joining Guzo today!",
-                "assets/walk.png"),
+                "assets/on_boarding/walk.png"),
           ],
         ),
         bottomSheet: bottomSheetWidget());

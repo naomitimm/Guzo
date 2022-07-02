@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../theme/app_theme.dart';
+import 'package:guzo_app/domain/nav_pages/home_page/sight_model.dart';
+import 'package:guzo_app/domain/nav_pages/home_page/task_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,32 +12,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final darkText = AppTheme.myLight();
-  final lightText = AppTheme.myDark();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const FaIcon(FontAwesomeIcons.bars)),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: const FaIcon(
+                        FontAwesomeIcons.toggleOff,
+                        size: 30,
+                      )),
+                ],
+              ),
             ),
             const Divider(
               color: Color.fromARGB(255, 219, 219, 219),
               thickness: 1,
             ),
             Text("Discover",
-                style: GoogleFonts.merriweatherSans(
-                  textStyle: const TextStyle(fontSize: 30),
+                style: GoogleFonts.montserrat(
+                  textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w500),
                 )),
             const SizedBox(
               height: 20,
@@ -47,15 +52,21 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Text("Sights",
-                      style: GoogleFonts.merriweatherSans(
-                        textStyle: const TextStyle(fontSize: 18),
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
                       )),
                   const SizedBox(
                     width: 50,
                   ),
                   Text("Places",
-                      style: GoogleFonts.merriweatherSans(
-                        textStyle: const TextStyle(fontSize: 18),
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
                       )),
                 ],
               ),
@@ -70,7 +81,22 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: ((context, index) {
-                    return sights();
+                    return sights(Sight.sights[index].imageUrl,
+                        Sight.sights[index].name, Sight.sights[index].location);
+                  })),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: ((context, index) {
+                    return task(
+                        Task.tasks[index].imageUrl, Task.tasks[index].title);
                   })),
             ),
           ],
@@ -79,38 +105,82 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget sights() {
+  Widget sights(String image, String name, String location) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         height: 250,
-        width: 200,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 99, 205, 99),
-            borderRadius: BorderRadius.all(Radius.circular(30))),
+        width: 250,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                image,
+              ),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: const BorderRadius.all(Radius.circular(30))),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text("Gondar Castel",
-                  style: GoogleFonts.merriweatherSans(
-                    textStyle: const TextStyle(fontSize: 20),
+              Text(name,
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
                   )),
               Row(
                 children: [
                   const Icon(
                     Icons.location_on,
+                    color: Colors.white,
                   ),
-                  Text("Gondar, Ethiopia",
-                      style: GoogleFonts.merriweatherSans(
-                        textStyle: darkText.textTheme.bodySmall,
+                  Text(location,
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                       ))
                 ],
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget task(String image, String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        width: 300,
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: const Color.fromARGB(255, 0, 117, 94),
+            ),
+            image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+            borderRadius: const BorderRadius.all(Radius.circular(10))),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0, right: 10),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Text(text,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700),
+                    )),
+              ),
+            )
+          ],
         ),
       ),
     );
