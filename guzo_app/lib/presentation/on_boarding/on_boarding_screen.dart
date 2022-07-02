@@ -32,8 +32,8 @@ class _OnBoardingState extends State<OnBoarding> {
                 "assets/float.png"),
             customContainer(
                 "Guzo",
-                "Relax & Enjoy",
-                "Experience the world's best adventures Lorem ipsum dolor sit amet, consectetur adipiscing elit. . Donec ac tristique neque.",
+                "Get Off Track",
+                "Why rush? When you can relax and marvel at the wonders of the world. elit. . Donec ac tristique neque.",
                 "assets/camp.png"),
             customContainer(
                 "Guzo",
@@ -115,12 +115,13 @@ class _OnBoardingState extends State<OnBoarding> {
                       onPressed: () {
                         pageController.jumpToPage(3);
                       },
-                      child: const Text(
-                        "Skip",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 0, 117, 94),
-                            fontSize: 18),
-                      )),
+                      child: Text("Skip",
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                color: Color.fromARGB(255, 0, 117, 94),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ))),
                   SmoothPageIndicator(
                       effect: WormEffect(
                           spacing: 16,
@@ -138,10 +139,13 @@ class _OnBoardingState extends State<OnBoarding> {
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeInOut);
                       },
-                      child: const Text("Next",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 0, 117, 94),
-                              fontSize: 18)))
+                      child: Text("Next",
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                color: Color.fromARGB(255, 0, 117, 94),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          )))
                 ],
               ),
             ),
