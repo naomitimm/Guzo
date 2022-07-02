@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -12,14 +13,22 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: double.infinity,
         width: double.infinity,
-        color: Color.fromARGB(255, 41, 171, 135),
-        child: ListView(
-          children: [
-            Align(alignment: Alignment.topLeft, child: circles()),
-            Align(alignment: Alignment.bottomRight, child: circles()),
-          ],
+        color: const Color.fromARGB(255, 0, 117, 94),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(children: [
+            Text("Discover",
+                style: GoogleFonts.montserrat(
+                  textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w500),
+                )),
+            const SizedBox(
+              height: 20,
+            ),
+          ]),
         ),
       ),
     );
