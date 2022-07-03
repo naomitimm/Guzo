@@ -15,27 +15,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.toggleOff,
-                        size: 30,
-                      )),
-                ],
+              child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: () {},
+                    icon: const FaIcon(
+                      FontAwesomeIcons.toggleOff,
+                      size: 30,
+                    )),
               ),
-            ),
-            const Divider(
-              color: Color.fromARGB(255, 219, 219, 219),
-              thickness: 1,
             ),
             Text("Discover",
                 style: GoogleFonts.montserrat(
@@ -45,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w500),
                 )),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -55,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                       style: GoogleFonts.montserrat(
                         textStyle: const TextStyle(
                             color: Colors.grey,
-                            fontSize: 20,
+                            fontSize: 17,
                             fontWeight: FontWeight.w500),
                       )),
                   const SizedBox(
@@ -65,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                       style: GoogleFonts.montserrat(
                         textStyle: const TextStyle(
                             color: Colors.grey,
-                            fontSize: 20,
+                            fontSize: 17,
                             fontWeight: FontWeight.w500),
                       )),
                 ],

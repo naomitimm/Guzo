@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:guzo_app/presentation/navPages/favorite_page.dart';
 import 'package:guzo_app/presentation/navPages/home_page.dart';
 import 'package:guzo_app/presentation/navPages/profile_page.dart';
@@ -25,7 +26,15 @@ class _HostPageState extends State<HostPage> {
     return Scaffold(
         body: myPages[myIndex],
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.black,
+          elevation: 40.0,
+          showUnselectedLabels: false,
+          // type: BottomNavigationBarType.fixed,
+          // backgroundColor:
+          //     const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
+          selectedItemColor: const Color.fromARGB(255, 0, 117, 94),
+          selectedLabelStyle: GoogleFonts.montserrat(
+            textStyle: const TextStyle(fontWeight: FontWeight.w700),
+          ),
           currentIndex: myIndex,
           onTap: (int index) {
             setState(() {
@@ -36,21 +45,21 @@ class _HostPageState extends State<HostPage> {
             BottomNavigationBarItem(
                 icon: FaIcon(
                   FontAwesomeIcons.house,
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 0, 117, 94),
                   size: 25,
                 ),
                 label: "Home"),
             BottomNavigationBarItem(
                 icon: FaIcon(
                   FontAwesomeIcons.magnifyingGlass,
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 0, 117, 94),
                   size: 25,
                 ),
                 label: "Search"),
             BottomNavigationBarItem(
               icon: FaIcon(
                 FontAwesomeIcons.solidHeart,
-                color: Colors.black,
+                color: Color.fromARGB(255, 0, 117, 94),
                 size: 25,
               ),
               label: "Favorites",
@@ -58,7 +67,7 @@ class _HostPageState extends State<HostPage> {
             BottomNavigationBarItem(
                 icon: FaIcon(
                   FontAwesomeIcons.userLarge,
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 0, 117, 94),
                   size: 25,
                 ),
                 label: "Profile"),

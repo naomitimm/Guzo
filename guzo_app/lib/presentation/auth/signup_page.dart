@@ -120,9 +120,9 @@ class _SignUpState extends State<SignUp> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  signUpComponent("assets/google.png"),
-                  signUpComponent("assets/facebook.png"),
-                  signUpComponent("assets/twitter.png")
+                  signUpComponent("assets/home_page/google.png"),
+                  signUpComponent("assets/home_page/facebook.png"),
+                  signUpComponent("assets/home_page/twitter.png")
                 ],
               ),
               const SizedBox(
@@ -179,7 +179,7 @@ class _SignUpState extends State<SignUp> {
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: Color.fromARGB(255, 203, 203, 203)),
+            border: Border.all(color: const Color.fromARGB(255, 203, 203, 203)),
             borderRadius: const BorderRadius.all(Radius.circular(10))),
         width: 90,
         child: Padding(

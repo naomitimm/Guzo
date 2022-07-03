@@ -5,8 +5,8 @@ class Task {
   Task({required this.imageUrl, required this.title});
 
   static List<Task> tasks = [
-    Task(imageUrl: 'assets/plane.png', title: "Tickets"),
-    Task(imageUrl: 'assets/hotel.png', title: "Hotels"),
-    Task(imageUrl: 'assets/adventure.png', title: "Adventures"),
+    Task(imageUrl: 'assets/home_page/plane.png', title: "Tickets"),
+    Task(imageUrl: 'assets/home_page/hotel.png', title: "Hotels"),
+    Task(imageUrl: 'assets/home_page/adventure.png', title: "Adventures"),
   ];
 }
