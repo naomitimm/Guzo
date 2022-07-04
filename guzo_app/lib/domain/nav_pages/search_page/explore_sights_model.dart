@@ -41,7 +41,7 @@ class ExploreSight {
         name: "cuernos del paine",
         location: "Chile"),
     ExploreSight(
-        imageUrl: 'assets/search_page/ama dablam .jpg',
+        imageUrl: 'assets/search_page/ama dablam.jpg',
         name: "ama dablam ",
         location: "Nepal"),
     ExploreSight(

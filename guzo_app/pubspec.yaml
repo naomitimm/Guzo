@@ -69,6 +69,7 @@ flutter:
     - assets/home_page/
     - assets/on_boarding/
     - assets/search_page/
+    - assets/favorites_page/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
