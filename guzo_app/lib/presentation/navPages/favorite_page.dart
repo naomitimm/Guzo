@@ -15,7 +15,7 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     // return const HasFavorites();
-    return const NoFavorites();
+    return const HasFavorites();
   }
 }
 
@@ -49,7 +49,7 @@ class _NoFavoritesState extends State<NoFavorites> {
               height: 30,
             ),
             Container(
-              height: 400,
+              height: 300,
               width: double.infinity,
               decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -60,11 +60,11 @@ class _NoFavoritesState extends State<NoFavorites> {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  Text("Looks like you don't have any favorites yet.",
+                  Text("No favorites yet.",
                       style: GoogleFonts.montserrat(
                         textStyle: const TextStyle(
                             color: Colors.black,
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500),
                       )),
                   const SizedBox(
@@ -74,11 +74,11 @@ class _NoFavoritesState extends State<NoFavorites> {
                       style: GoogleFonts.montserrat(
                         textStyle: const TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 12,
                         ),
                       )),
                   const SizedBox(
-                    height: 70,
+                    height: 40,
                   ),
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
@@ -168,15 +168,14 @@ class _HasFavoritesState extends State<HasFavorites> {
               ],
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
-            Column(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                favroiteCard(),
-                favroiteCard(),
-                favroiteCard(),
-                favroiteCard(),
-                favroiteCard()
+                favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
+                favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
+                favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg')
               ],
             )
           ],
@@ -185,75 +184,54 @@ class _HasFavoritesState extends State<HasFavorites> {
     );
   }
 
-  Widget favroiteCard() {
+  Widget favroiteCard(String name, String location, String image) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
         height: 150,
+        width: double.infinity,
         decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
             border: Border.all(
-              color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
+              color: Colors.black.withOpacity(0.2),
             ),
             borderRadius: const BorderRadius.all(Radius.circular(10))),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                height: 140,
-                width: 600,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/search_page/ama dablam.jpg'),
-                        fit: BoxFit.cover),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Row(
+        child: Row(
+          children: [
+            Container(
+              height: double.infinity,
+              width: 170,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                height: double.infinity,
+                width: 140,
+                child: Stack(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Name",
-                              style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
-                              )),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.location_on,
-                                color: Colors.white,
-                              ),
-                              Text("Location",
-                                  style: GoogleFonts.montserrat(
-                                    textStyle: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500),
-                                  ))
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(name)),
+                    Positioned(
+                      top: 20,
+                      
+                      child: Text(location)),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(onPressed: (){}, icon: const Icon(Icons.delete)))
                   ],
                 ),
               ),
-              IconButton(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.trashCan,
-                    size: 25,
-                  )),
-            ],
+            )
+          ],
+            
           ),
         ),
-      ),
+      
     );
   }
 }
