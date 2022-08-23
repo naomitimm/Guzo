@@ -45,7 +45,28 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
                 Text("John Doe", style: GoogleFonts.montserrat(
                   color: Colors.black, fontSize: 20
-                ),)
+                ),), 
+                const SizedBox(
+                  height: 50,
+                ),
+              GestureDetector(
+                onTap: (){},
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 0, 117, 94),
+                    borderRadius: BorderRadius.all(Radius.circular(10))
+                  ),
+                  child: Center(
+                    child: Text("Edit Profile", style: GoogleFonts.montserrat(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500
+                    ),),
+                  ),
+                ),
+              )
               ],
             )
           ],
