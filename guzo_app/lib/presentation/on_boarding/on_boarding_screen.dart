@@ -60,13 +60,13 @@ class _OnBoardingState extends State<OnBoarding> {
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
-                      width: 300,
+                      width: 150,
                       height: 50,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color.fromARGB(255, 0, 117, 94)),
                       child: Center(
-                        child: Text("Create an account",
+                        child: Text("New account",
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,
@@ -86,7 +86,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
-                      width: 300,
+                      width: 150,
                       height: 50,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -173,27 +173,30 @@ class _OnBoardingState extends State<OnBoarding> {
                         fontWeight: FontWeight.w800),
                   ))),
           Positioned(
-              top: 550,
+              top: 100,
               child: Text(subTitle,
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
                         color: Color.fromARGB(255, 29, 81, 109),
-                        fontSize: 30,
+                        fontSize: 20,
                         fontWeight: FontWeight.w500),
                   ))),
-          Positioned(
-              top: 590,
+          Align(
+            alignment: Alignment.bottomLeft,
+              
               child: SizedBox(
-                width: 300,
-                child: Text(
-                  description,
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      fontSize: 15,
+                width: 250,
+                
+                  child: Text(
+                    description,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ),
                 ),
-              ))
+              )
         ],
       ),
     );
