@@ -23,10 +23,10 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 IconButton(onPressed: (){}, icon: const FaIcon(
                             FontAwesomeIcons.shareFromSquare,
-                            size: 30,
+                            size: 25,
                           ),),
-                          const SizedBox(width: 15,),
-                          IconButton(onPressed: (){}, icon: const Icon(Icons.settings),iconSize: 30,)
+                          const SizedBox(width: 10,),
+                          IconButton(onPressed: (){}, icon: const Icon(Icons.settings),iconSize: 25)
               ],
             ),
             Text("Profile", style: GoogleFonts.montserrat(

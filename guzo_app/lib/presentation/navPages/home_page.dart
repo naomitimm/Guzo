@@ -20,18 +20,16 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Align(
+            Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
                     onPressed: () {},
                     icon: const FaIcon(
                       FontAwesomeIcons.toggleOff,
-                      size: 30,
+                      size: 25,
                     )),
               ),
-            ),
+            
             Text("Discover",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
