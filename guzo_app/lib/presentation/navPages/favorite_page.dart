@@ -15,7 +15,7 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     // return const HasFavorites();
-    return const HasFavorites();
+    return const NoFavorites();
   }
 }
 
@@ -32,7 +32,7 @@ class _NoFavoritesState extends State<NoFavorites> {
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: ListView(
           children: [
             const SizedBox(
@@ -46,7 +46,7 @@ class _NoFavoritesState extends State<NoFavorites> {
                       fontWeight: FontWeight.w500),
                 )),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             Container(
               height: 300,
@@ -129,12 +129,18 @@ class _HasFavoritesState extends State<HasFavorites> {
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ListView(
           children: [
-            const SizedBox(
-              height: 20,
-            ),
+            Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: () {},
+                    icon: const FaIcon(
+                      FontAwesomeIcons.plane,
+                      size: 25,
+                    )),
+              ),
             Text("Favorites",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
@@ -143,41 +149,46 @@ class _HasFavoritesState extends State<HasFavorites> {
                       fontWeight: FontWeight.w500),
                 )),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("Recent",
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500),
-                    )),
-                const SizedBox(
-                  width: 50,
-                ),
-                Text("Alphabet",
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500),
-                    )),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Text("Recent",
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500),
+                      )),
+                  const SizedBox(
+                    width: 50,
+                  ),
+                  Text("Alphabet",
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500),
+                      )),
+                ],
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
-                favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
-                favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg')
-              ],
-            )
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
+                  favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
+                  favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg')
+                ],
+              ),
+          )
           ],
         ),
       ),
@@ -200,7 +211,7 @@ class _HasFavoritesState extends State<HasFavorites> {
           children: [
             Container(
               height: double.infinity,
-              width: 170,
+              width: 150,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
                 image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
