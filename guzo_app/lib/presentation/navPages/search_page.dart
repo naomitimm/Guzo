@@ -16,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: ListView(children: [
           Align(
               alignment: Alignment.topRight,
@@ -35,21 +35,21 @@ class _SearchPageState extends State<SearchPage> {
                     fontSize: 35,
                     fontWeight: FontWeight.w500),
               )),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 20),
+          //   child: Text("Find destinations that suit you.",
+          //       style: GoogleFonts.montserrat(
+          //         textStyle: const TextStyle(
+          //             color: Colors.grey,
+          //             fontSize: 17,
+          //             fontWeight: FontWeight.w500),
+          //       )),
+          // ),
           const SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text("Find the destination that suits you.",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500),
-                )),
-          ),
-          const SizedBox(
-            height: 10,
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -150,7 +150,7 @@ class _SearchPageState extends State<SearchPage> {
         padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 25,
+            radius: 20,
             backgroundImage: AssetImage(image)),
       ),
     );
@@ -165,7 +165,7 @@ class _SearchPageState extends State<SearchPage> {
           textStyle: const TextStyle(
               color: Color.fromARGB(255, 0, 117, 94),
               fontSize: 15,
-              fontWeight: FontWeight.w700),
+              fontWeight: FontWeight.w500),
         ),
       ),
     );
@@ -231,7 +231,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget containerCatagoriesTitle(String title) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Text(
         title,
         style: GoogleFonts.montserrat(
