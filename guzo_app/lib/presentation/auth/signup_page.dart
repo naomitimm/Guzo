@@ -32,10 +32,10 @@ class _SignUpState extends State<SignUp> {
               )),
         ),
         const SizedBox(
-          height: 40,
+          height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 60),
+          padding: const EdgeInsets.only(left: 40),
           child: Text("Create your account",
               style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
@@ -48,7 +48,7 @@ class _SignUpState extends State<SignUp> {
           height: 30,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60.0),
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(
             children: [
               TextFormField(
@@ -70,14 +70,14 @@ class _SignUpState extends State<SignUp> {
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(), labelText: "Password"),
               ),
-              const SizedBox(
-                height: 25,
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Confirm Password"),
-              ),
+              // const SizedBox(
+              //   height: 25,
+              // ),
+              // TextFormField(
+              //   decoration: const InputDecoration(
+              //       border: OutlineInputBorder(),
+              //       labelText: "Confirm Password"),
+              // ),
               const SizedBox(
                 height: 40,
               ),
@@ -181,7 +181,7 @@ class _SignUpState extends State<SignUp> {
             color: Colors.white,
             border: Border.all(color: const Color.fromARGB(255, 203, 203, 203)),
             borderRadius: const BorderRadius.all(Radius.circular(10))),
-        width: 90,
+        width: 70,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Container(

@@ -47,10 +47,10 @@ class _LogInState extends State<LogIn> {
               )),
         ),
         const SizedBox(
-          height: 40,
+          height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 60),
+          padding: const EdgeInsets.only(left: 40),
           child: Text("Log in to your account",
               style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
@@ -63,14 +63,14 @@ class _LogInState extends State<LogIn> {
           height: 30,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60.0),
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(children: [
             TextFormField(
               decoration: const InputDecoration(
                   border: OutlineInputBorder(), labelText: "Email"),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             TextFormField(
               decoration: const InputDecoration(
@@ -176,7 +176,7 @@ class _LogInState extends State<LogIn> {
             color: Colors.white,
             border: Border.all(color: const Color.fromARGB(255, 203, 203, 203)),
             borderRadius: const BorderRadius.all(Radius.circular(10))),
-        width: 90,
+        width: 70,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Container(
