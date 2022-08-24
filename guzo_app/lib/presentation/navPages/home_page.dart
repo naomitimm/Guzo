@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: ListView(
           children: [
             Align(
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w500),
                 )),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             SizedBox(
               height: 250,
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
               height: 40,
             ),
             SizedBox(
-              height: 200,
+              height: 100,
               width: double.infinity,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -164,9 +164,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget task(String image, String text) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-        width: 300,
+        width: 150,
         decoration: BoxDecoration(
             border: Border.all(
               color: const Color.fromARGB(255, 0, 117, 94),
