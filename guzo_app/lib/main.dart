@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:guzo_app/presentation/auth/login_page.dart';
-import 'package:guzo_app/presentation/host_page.dart';
-import 'package:guzo_app/presentation/navPages/profile_page.dart';
+import 'package:go_router/go_router.dart';
 import 'package:guzo_app/presentation/on_boarding/on_boarding_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    // home: HostPage(),
-    home: OnBoarding(),
-  ));
+  runApp(NavApp());
+}
+
+class NavApp extends StatelessWidget {
+  NavApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
+      routeInformationProvider: _router.routeInformationProvider,
+    );
+  }
+
+  final GoRouter _router = GoRouter(routes: <GoRoute>[
+    GoRoute(
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) =>
+            const OnBoarding())
+  ]);
 }
