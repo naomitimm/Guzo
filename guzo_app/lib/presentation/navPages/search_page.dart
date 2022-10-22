@@ -16,18 +16,18 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         child: ListView(children: [
           Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.barsStaggered,
-                    size: 25,
-                  )),
-            ),
-          
+            alignment: Alignment.topRight,
+            child: IconButton(
+                onPressed: () {},
+                icon: const FaIcon(
+                  FontAwesomeIcons.barsStaggered,
+                  size: 25,
+                )),
+          ),
+
           Text("Explore",
               style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(

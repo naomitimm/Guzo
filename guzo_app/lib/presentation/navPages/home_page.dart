@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         child: ListView(
           children: [
             Align(
