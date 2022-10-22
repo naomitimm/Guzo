@@ -85,7 +85,7 @@ class _NoFavoritesState extends State<NoFavorites> {
                     onTap: _browse,
                     child: Container(
                       width: double.infinity,
-                      height: 50,
+                      height: 40,
                       decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 0, 117, 94),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -133,14 +133,14 @@ class _HasFavoritesState extends State<HasFavorites> {
         child: ListView(
           children: [
             Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                    onPressed: () {},
-                    icon: const FaIcon(
-                      FontAwesomeIcons.plane,
-                      size: 25,
-                    )),
-              ),
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const FaIcon(
+                    FontAwesomeIcons.plane,
+                    size: 25,
+                  )),
+            ),
             Text("Favorites",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
@@ -178,17 +178,20 @@ class _HasFavoritesState extends State<HasFavorites> {
             const SizedBox(
               height: 20,
             ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
-                  favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg'),
-                  favroiteCard("Gondar Castel", "Ethiopia", 'assets/home_page/ethiopia.jpg')
+                  favroiteCard("Gondar Castel", "Ethiopia",
+                      'assets/home_page/ethiopia.jpg'),
+                  favroiteCard("Gondar Castel", "Ethiopia",
+                      'assets/home_page/ethiopia.jpg'),
+                  favroiteCard("Gondar Castel", "Ethiopia",
+                      'assets/home_page/ethiopia.jpg')
                 ],
               ),
-          )
+            )
           ],
         ),
       ),
@@ -202,7 +205,7 @@ class _HasFavoritesState extends State<HasFavorites> {
         height: 150,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
+            color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
             border: Border.all(
               color: Colors.black.withOpacity(0.2),
             ),
@@ -213,10 +216,12 @@ class _HasFavoritesState extends State<HasFavorites> {
               height: double.infinity,
               width: 150,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
-                image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10)),
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
             ),
-            
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: SizedBox(
@@ -224,25 +229,19 @@ class _HasFavoritesState extends State<HasFavorites> {
                 width: 140,
                 child: Stack(
                   children: [
+                    Align(alignment: Alignment.topLeft, child: Text(name)),
+                    Positioned(top: 20, child: Text(location)),
                     Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(name)),
-                    Positioned(
-                      top: 20,
-                      
-                      child: Text(location)),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: IconButton(onPressed: (){}, icon: const Icon(Icons.delete)))
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.delete)))
                   ],
                 ),
               ),
             )
           ],
-            
-          ),
         ),
-      
+      ),
     );
   }
 }
