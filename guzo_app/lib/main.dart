@@ -21,20 +21,40 @@ class NavApp extends StatelessWidget {
     );
   }
 
-  final GoRouter _router = GoRouter(routes: <GoRoute>[
-    GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) =>
-            const OnBoarding()),
-    GoRoute(
-        path: '/signUp_page',
-        builder: (BuildContext context, GoRouterState state) => const SignUp()),
-    GoRoute(
-        path: '/login_page',
-        builder: (BuildContext context, GoRouterState state) => const LogIn()),
-    GoRoute(
-        path: '/host_page',
-        builder: (BuildContext context, GoRouterState state) =>
-            const HostPage())
-  ]);
+  final GoRouter _router = GoRouter(
+      errorBuilder: (context, state) => ErrorScreen(error: state.error),
+      routes: <GoRoute>[
+        GoRoute(
+            path: '/',
+            builder: (BuildContext context, GoRouterState state) =>
+                const OnBoarding()),
+        GoRoute(
+            path: '/signUp_page',
+            builder: (BuildContext context, GoRouterState state) =>
+                const SignUp()),
+        GoRoute(
+            path: '/login_page',
+            builder: (BuildContext context, GoRouterState state) =>
+                const LogIn()),
+        GoRoute(
+            path: '/host_page',
+            builder: (BuildContext context, GoRouterState state) =>
+                const HostPage())
+      ]);
+}
+
+class ErrorScreen extends StatelessWidget {
+  final Exception? error;
+  const ErrorScreen({Key? key, required this.error}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Padding(
+        padding: const EdgeInsets.only(left: 15),
+        child: Text(error.toString()),
+      )),
+    );
+  }
 }
