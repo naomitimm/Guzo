@@ -155,7 +155,7 @@ class _OnBoardingState extends State<OnBoarding> {
   Widget customContainer(
       String title, String subTitle, String description, String image) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 100.0, top: 20, left: 20),
+      padding: const EdgeInsets.only(bottom: 100.0, top: 40, left: 20),
       child: Stack(
         children: [
           Container(
@@ -183,20 +183,18 @@ class _OnBoardingState extends State<OnBoarding> {
                   ))),
           Align(
             alignment: Alignment.bottomLeft,
-              
-              child: SizedBox(
-                width: 250,
-                
-                  child: Text(
-                    description,
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
+            child: SizedBox(
+              width: 250,
+              child: Text(
+                description,
+                style: GoogleFonts.montserrat(
+                  textStyle: const TextStyle(
+                    fontSize: 16,
                   ),
                 ),
-              )
+              ),
+            ),
+          )
         ],
       ),
     );

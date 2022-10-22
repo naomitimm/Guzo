@@ -21,15 +21,14 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                    onPressed: () {},
-                    icon: const FaIcon(
-                      FontAwesomeIcons.toggleOff,
-                      size: 25,
-                    )),
-              ),
-            
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const FaIcon(
+                    FontAwesomeIcons.toggleOff,
+                    size: 25,
+                  )),
+            ),
             Text("Discover",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
