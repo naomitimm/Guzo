@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,8 +19,14 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
-        const SizedBox(
-          height: 30,
+        Align(
+          alignment: Alignment.topLeft,
+          child: IconButton(
+              onPressed: () => context.go('/'),
+              icon: const FaIcon(
+                FontAwesomeIcons.angleLeft,
+                size: 25,
+              )),
         ),
         Align(
           alignment: Alignment.topCenter,

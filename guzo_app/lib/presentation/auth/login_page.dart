@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:guzo_app/presentation/host_page.dart';
@@ -19,19 +20,15 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
-        // Align(
-        //   alignment: Alignment.topLeft,
-        //   child: IconButton(
-        //       onPressed: navigateToHome,
-        //       icon: const Padding(
-        //         padding: EdgeInsets.all(10.0),
-        //         child: Icon(
-        //           Icons.arrow_back_ios,
-        //           color: Colors.black,
-        //           size: 30,
-        //         ),
-        //       )),
-        // ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: IconButton(
+              onPressed: () => context.go('/'),
+              icon: const FaIcon(
+                FontAwesomeIcons.angleLeft,
+                size: 25,
+              )),
+        ),
         const SizedBox(
           height: 30,
         ),

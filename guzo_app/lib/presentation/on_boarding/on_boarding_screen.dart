@@ -60,7 +60,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color.fromARGB(255, 0, 117, 94)),
                       child: Center(
-                        child: Text("New account",
+                        child: Text("Create account",
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,
