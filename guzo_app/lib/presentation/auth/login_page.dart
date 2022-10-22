@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:guzo_app/presentation/auth/signup_page.dart';
+import 'package:go_router/go_router.dart';
 import 'package:guzo_app/presentation/host_page.dart';
-import 'package:guzo_app/presentation/on_boarding/on_boarding_screen.dart';
 
 import '../theme/app_theme.dart';
 
@@ -80,11 +79,7 @@ class _LogInState extends State<LogIn> {
               height: 40,
             ),
             GestureDetector(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                  return const HostPage();
-                })));
-              },
+              onTap: () => context.go('/host_page'),
               child: Padding(
                   padding: const EdgeInsets.only(bottom: 20),
                   child: Container(
@@ -94,7 +89,7 @@ class _LogInState extends State<LogIn> {
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                         color: Color.fromARGB(255, 0, 117, 94)),
                     child: Center(
-                      child: Text("Sign In",
+                      child: Text("Log In",
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(
                                 color: Colors.white,
@@ -104,7 +99,7 @@ class _LogInState extends State<LogIn> {
                     ),
                   )),
             ),
-            Text("Or sign in with",
+            Text("Or log in with",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
                       color: Colors.grey,
@@ -139,7 +134,7 @@ class _LogInState extends State<LogIn> {
                   width: 5,
                 ),
                 GestureDetector(
-                  onTap: navigateToSignUp,
+                  onTap: () => context.go('/signUp_page'),
                   child: Text("Sign Up",
                       style: GoogleFonts.montserrat(
                         textStyle: const TextStyle(
@@ -154,18 +149,6 @@ class _LogInState extends State<LogIn> {
         )
       ]),
     );
-  }
-
-  void navigateToSignUp() {
-    Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return const SignUp();
-    })));
-  }
-
-  void navigateToHome() {
-    Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return const OnBoarding();
-    })));
   }
 
   Widget signUpComponent(String image) {
