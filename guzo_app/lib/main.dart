@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:guzo_app/presentation/auth/login_page.dart';
+import 'package:guzo_app/presentation/auth/signup_page.dart';
 import 'package:guzo_app/presentation/on_boarding/on_boarding_screen.dart';
 
 void main() {
@@ -22,6 +24,12 @@ class NavApp extends StatelessWidget {
     GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) =>
-            const OnBoarding())
+            const OnBoarding()),
+    GoRoute(
+        path: '/signUp_page',
+        builder: (BuildContext context, GoRouterState state) => const SignUp()),
+    GoRoute(
+        path: '/login_page',
+        builder: (BuildContext context, GoRouterState state) => const LogIn())
   ]);
 }

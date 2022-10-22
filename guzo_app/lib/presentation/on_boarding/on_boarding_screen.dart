@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:guzo_app/presentation/auth/login_page.dart';
 import 'package:guzo_app/presentation/auth/signup_page.dart';
@@ -51,12 +52,7 @@ class _OnBoardingState extends State<OnBoarding> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return const SignUp();
-                  })));
-                },
+                onTap: () => context.go('/signUp_page'),
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
@@ -77,12 +73,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     )),
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return const LogIn();
-                  })));
-                },
+                onTap: () => context.go('/login_page'),
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
