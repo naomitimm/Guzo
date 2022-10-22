@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:guzo_app/presentation/host_page.dart';
 
@@ -82,12 +83,7 @@ class _SignUpState extends State<SignUp> {
                 height: 40,
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return const HostPage();
-                  })));
-                },
+                onTap: () => context.go('/host_page'),
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
@@ -142,8 +138,8 @@ class _SignUpState extends State<SignUp> {
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: navigateToSignIn,
-                    child: Text("Sign In",
+                    onTap: () => context.go('/login_page'),
+                    child: Text("Log In",
                         style: GoogleFonts.montserrat(
                           textStyle: const TextStyle(
                               color: Color.fromARGB(255, 0, 117, 94),
@@ -161,16 +157,6 @@ class _SignUpState extends State<SignUp> {
         )
       ]),
     );
-  }
-
-  void navigateToHome() {
-    Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return const HostPage();
-    })));
-  }
-
-  void navigateToSignIn() {
-    Navigator.pop(context);
   }
 
   Widget signUpComponent(String image) {
