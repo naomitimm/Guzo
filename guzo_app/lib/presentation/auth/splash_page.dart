@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:guzo_app/presentation/auth/login_page.dart';
-import 'package:lottie/lottie.dart';
-
-import 'package:google_fonts/google_fonts.dart';
-import '../theme/app_theme.dart';
+import 'package:guzo_app/presentation/screens_and_imports.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);

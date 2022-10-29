@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:guzo_app/presentation/auth/login_page.dart';
-import 'package:guzo_app/presentation/auth/signup_page.dart';
-import 'package:guzo_app/presentation/host_page.dart';
+import 'package:guzo_app/presentation/screens_and_imports.dart';
 
 void main() {
   runApp(NavApp());

@@ -1,8 +1,5 @@
+import 'package:guzo_app/presentation/screens_and_imports.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:guzo_app/domain/nav_pages/search_page/explore_sights_model.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
