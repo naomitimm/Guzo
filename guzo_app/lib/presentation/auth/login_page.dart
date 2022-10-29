@@ -1,9 +1,8 @@
+import 'package:guzo_app/presentation/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
-import 'package:guzo_app/presentation/host_page.dart';
-
 import '../theme/app_theme.dart';
 
 class LogIn extends StatefulWidget {
@@ -16,6 +15,8 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final darktext = AppTheme.myLight();
   final lightText = AppTheme.myDark();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,17 +62,11 @@ class _LogInState extends State<LogIn> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(children: [
-            TextFormField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Email"),
-            ),
+            emailField(_emailController),
             const SizedBox(
               height: 25,
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Password"),
-            ),
+            passwordField(_passwordController),
             const SizedBox(
               height: 40,
             ),
@@ -145,30 +140,6 @@ class _LogInState extends State<LogIn> {
           ]),
         )
       ]),
-    );
-  }
-
-  Widget signUpComponent(String image) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: const Color.fromARGB(255, 203, 203, 203)),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        width: 70,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.scaleDown)),
-          ),
-        ),
-      ),
     );
   }
 }

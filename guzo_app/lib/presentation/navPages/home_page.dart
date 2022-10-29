@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
   Widget sights(String image, String name, String location) {
     return GestureDetector(
       onTap: () {
-        context.go('/sight_detail_page$name');
+        context.go('/sight_detail_page');
       },
       child: Stack(
         children: [
