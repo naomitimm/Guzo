@@ -1,4 +1,4 @@
-import 'package:guzo_app/presentation/screens_and_imports.dart';
+import 'package:guzo_app/presentation/exports.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);

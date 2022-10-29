@@ -1,4 +1,4 @@
-import 'package:guzo_app/presentation/screens_and_imports.dart';
+import 'package:guzo_app/presentation/exports.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
