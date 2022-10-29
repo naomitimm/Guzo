@@ -1,4 +1,4 @@
-export 'package:guzo_app/presentation/common_widgets.dart';
+export 'package:guzo_app/presentation/auth/auth_widgets.dart';
 export 'package:flutter/material.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 export 'package:google_fonts/google_fonts.dart';
@@ -11,7 +11,7 @@ export 'package:guzo_app/presentation/auth/login/login_page.dart';
 export 'package:guzo_app/presentation/auth/signup/signup_page.dart';
 
 // nav pages
-export 'package:guzo_app/presentation/host_page.dart';
+export 'package:guzo_app/presentation/navPages/host_page.dart';
 export 'package:guzo_app/presentation/navPages/home_page.dart';
 export 'package:guzo_app/presentation/navPages/favorite_page.dart';
 export 'package:guzo_app/presentation/navPages/profile_page.dart';

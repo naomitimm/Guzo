@@ -1,3 +1,5 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:guzo_app/application/auth/login/bloc/login_bloc.dart';
 import 'package:guzo_app/domain/user/user_form_validator.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
@@ -32,7 +34,7 @@ class _LogInState extends State<LogIn> {
         const SizedBox(
           height: 10,
         ),
-        Align(alignment: Alignment.topCenter, child: guzoHeadline()),
+        const Align(alignment: Alignment.topCenter, child: GuzoHeadline()),
         const SizedBox(
           height: 20,
         ),
@@ -79,10 +81,10 @@ class _LogInState extends State<LogIn> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                signUpComponent("assets/home_page/google.png"),
-                signUpComponent("assets/home_page/facebook.png"),
-                signUpComponent("assets/home_page/twitter.png")
+              children: const [
+                ExtraAuthRoutes(image: "assets/home_page/google.png"),
+                ExtraAuthRoutes(image: "assets/home_page/facebook.png"),
+                ExtraAuthRoutes(image: "assets/home_page/twitter.png"),
               ],
             ),
             const SizedBox(
