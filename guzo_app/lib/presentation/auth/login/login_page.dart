@@ -1,3 +1,4 @@
+import 'package:guzo_app/domain/user/user_form_validator.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 class LogIn extends StatefulWidget {
@@ -15,11 +16,8 @@ class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: loginUi());
-  }
-
-  Widget loginUi() {
-    return Form(
+    return Scaffold(
+        body: Form(
       key: _formKey,
       child: ListView(children: [
         Align(
@@ -54,11 +52,17 @@ class _LogInState extends State<LogIn> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(children: [
-            emailField(_emailController),
+            EmailField(
+                controller: _emailController,
+                hintText: "Email",
+                validator: UserFormValidator.validateEmail),
             const SizedBox(
               height: 25,
             ),
-            passwordField(_passwordController),
+            PasswordField(
+                controller: _passwordController,
+                hintText: "Password",
+                validator: UserFormValidator.validatePassword),
             const SizedBox(
               height: 40,
             ),
@@ -112,7 +116,7 @@ class _LogInState extends State<LogIn> {
           ]),
         )
       ]),
-    );
+    ));
   }
 
   Widget formSubmitButton() {

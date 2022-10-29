@@ -7,6 +7,8 @@ void main() {
   runApp(GuzoPages());
 }
 
+final authRepository = AuthRepository();
+
 class GuzoApp extends StatelessWidget {
   const GuzoApp({Key? key}) : super(key: key);
 
@@ -15,8 +17,7 @@ class GuzoApp extends StatelessWidget {
     return RepositoryProvider(
       create: (context) => AuthRepository(),
       child: BlocProvider(
-        create: (context) =>
-            LoginBloc(authRepository: context.read<AuthRepository>()),
+        create: (context) => LoginBloc(authRepository: authRepository),
         child: GuzoPages(),
       ),
     );

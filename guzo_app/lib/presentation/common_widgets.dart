@@ -1,30 +1,106 @@
 import 'package:guzo_app/presentation/exports.dart';
 
-Widget emailField(TextEditingController _controller) {
-  return TextFormField(
-    validator: (value) => null,
-    controller: _controller,
-    decoration:
-        const InputDecoration(border: OutlineInputBorder(), labelText: "Email"),
-  );
+class EmailField extends StatelessWidget {
+  const EmailField(
+      {Key? key,
+      required this.controller,
+      required this.hintText,
+      required this.validator})
+      : super(key: key);
+
+  final TextEditingController controller;
+  final String hintText;
+  final String? Function(String?) validator;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: validator,
+      controller: controller,
+      decoration: InputDecoration(
+        hintText: hintText,
+        border: const OutlineInputBorder(),
+      ),
+    );
+  }
 }
 
-Widget passwordField(TextEditingController _controller) {
-  return TextFormField(
-    validator: (value) => null,
-    controller: _controller,
-    obscureText: true,
-    decoration: const InputDecoration(
-        suffixIcon: IconButton(
-          onPressed: _toggleHideButton,
-          icon: FaIcon(
-            FontAwesomeIcons.eyeSlash,
-            size: 20,
-          ),
-        ),
-        border: OutlineInputBorder(),
-        labelText: "Password"),
-  );
+class PasswordField extends StatefulWidget {
+  PasswordField(
+      {Key? key,
+      required this.controller,
+      required this.hintText,
+      required this.validator,
+      this.isVisible = true})
+      : super(key: key);
+
+  final TextEditingController controller;
+  final String hintText;
+  final String? Function(String?) validator;
+  bool isVisible;
+
+  @override
+  State<PasswordField> createState() => _PasswordFieldState();
+}
+
+class _PasswordFieldState extends State<PasswordField> {
+  bool showPassword = false;
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: widget.validator,
+      controller: widget.controller,
+      obscureText: !showPassword,
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        suffixIcon: widget.isVisible
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                icon: FaIcon(
+                  showPassword
+                      ? FontAwesomeIcons.eye
+                      : FontAwesomeIcons.eyeSlash,
+                  size: 20,
+                ),
+              )
+            : null,
+        border: const OutlineInputBorder(),
+      ),
+    );
+  }
+}
+
+class LoginButton extends StatelessWidget {
+  const LoginButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Container(
+            width: double.infinity,
+            height: 50,
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color.fromARGB(255, 0, 117, 94)),
+            child: Center(
+              child: Text("Log In",
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  )),
+            ),
+          )),
+    );
+  }
 }
 
 Widget signUpComponent(String image) {
@@ -84,5 +160,3 @@ Widget formSubmitButton1(Function function) {
         )),
   );
 }
-
-void _toggleHideButton() {}
