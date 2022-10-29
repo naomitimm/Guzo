@@ -7,8 +7,8 @@ export 'package:guzo_app/presentation/theme/app_theme.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 export 'package:lottie/lottie.dart';
 // auth pages
-export 'package:guzo_app/presentation/auth/login_page.dart';
-export 'package:guzo_app/presentation/auth/signup_page.dart';
+export 'package:guzo_app/presentation/auth/login/login_page.dart';
+export 'package:guzo_app/presentation/auth/signup/signup_page.dart';
 
 // nav pages
 export 'package:guzo_app/presentation/host_page.dart';

@@ -1,11 +1,30 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:guzo_app/application/auth/login/bloc/login_bloc.dart';
+import 'package:guzo_app/infrustructure/auth/auth_repository.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
-  runApp(NavApp());
+  runApp(GuzoPages());
 }
 
-class NavApp extends StatelessWidget {
-  NavApp({Key? key}) : super(key: key);
+class GuzoApp extends StatelessWidget {
+  const GuzoApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RepositoryProvider(
+      create: (context) => AuthRepository(),
+      child: BlocProvider(
+        create: (context) =>
+            LoginBloc(authRepository: context.read<AuthRepository>()),
+        child: GuzoPages(),
+      ),
+    );
+  }
+}
+
+class GuzoPages extends StatelessWidget {
+  GuzoPages({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
