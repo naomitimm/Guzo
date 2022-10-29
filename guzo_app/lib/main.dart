@@ -3,8 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:guzo_app/presentation/auth/login_page.dart';
 import 'package:guzo_app/presentation/auth/signup_page.dart';
 import 'package:guzo_app/presentation/host_page.dart';
-import 'package:guzo_app/presentation/navPages/sight_detail_page.dart';
-import 'package:guzo_app/presentation/on_boarding/on_boarding_screen.dart';
 
 void main() {
   runApp(NavApp());
@@ -22,8 +20,8 @@ class NavApp extends StatelessWidget {
     );
   }
 
-  final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  final _shellNavigatorKey = GlobalKey<NavigatorState>();
+  // final _rootNavigatorKey = GlobalKey<NavigatorState>();
+  // final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
   final GoRouter _router = GoRouter(
       initialLocation: '/',

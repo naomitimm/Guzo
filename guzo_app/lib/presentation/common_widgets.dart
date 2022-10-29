@@ -1,11 +1,10 @@
-import 'package:guzo_app/presentation/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:go_router/go_router.dart';
 
 Widget emailField(TextEditingController _controller) {
   return TextFormField(
+    validator: (value) => null,
     controller: _controller,
     decoration:
         const InputDecoration(border: OutlineInputBorder(), labelText: "Email"),
@@ -14,6 +13,7 @@ Widget emailField(TextEditingController _controller) {
 
 Widget passwordField(TextEditingController _controller) {
   return TextFormField(
+    validator: (value) => null,
     controller: _controller,
     obscureText: true,
     decoration: const InputDecoration(
