@@ -65,7 +65,7 @@ class _LogInState extends State<LogIn> {
             const SizedBox(
               height: 40,
             ),
-            AuthSubmitButton(
+            LoginButton(
               formKey: _formKey,
               dispatcher: () {
                 final loginBloc = context.read<LoginBloc>();

@@ -120,11 +120,11 @@ class GuzoHeadline extends StatelessWidget {
   }
 }
 
-class AuthSubmitButton extends StatelessWidget {
+class LoginButton extends StatelessWidget {
   final void Function() dispatcher;
   final GlobalKey<FormState> formKey;
   final String lable;
-  const AuthSubmitButton(
+  const LoginButton(
       {Key? key,
       required this.formKey,
       required this.dispatcher,
@@ -176,6 +176,35 @@ class AuthSubmitButton extends StatelessWidget {
               )),
         );
       },
+    );
+  }
+}
+
+class SignupButton extends StatelessWidget {
+  const SignupButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Container(
+            width: double.infinity,
+            height: 50,
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color.fromARGB(255, 0, 117, 94)),
+            child: Center(
+              child: Text("Sign Up",
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  )),
+            ),
+          )),
     );
   }
 }

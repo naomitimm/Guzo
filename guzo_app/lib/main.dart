@@ -1,3 +1,4 @@
+import 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
@@ -11,13 +12,17 @@ class GuzoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-      create: (context) => AuthRepository(),
-      child: BlocProvider(
-        create: (context) => LoginBloc(authRepository: authRepository),
-        child: GuzoPages(),
-      ),
-    );
+    return MultiRepositoryProvider(
+        providers: [RepositoryProvider(create: (context) => AuthRepository())],
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+                create: (context) => LoginBloc(authRepository: authRepository)),
+            BlocProvider(
+                create: (context) => SignupBloc(authRepository: authRepository))
+          ],
+          child: GuzoPages(),
+        ));
   }
 }
 
@@ -32,9 +37,6 @@ class GuzoPages extends StatelessWidget {
       routeInformationProvider: _router.routeInformationProvider,
     );
   }
-
-  // final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  // final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
   final GoRouter _router = GoRouter(
       initialLocation: '/',
