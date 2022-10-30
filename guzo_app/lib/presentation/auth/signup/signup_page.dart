@@ -72,6 +72,27 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(
                 height: 25,
               ),
+              GestureDetector(
+                onTap: () {},
+                child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Color.fromARGB(255, 0, 117, 94)),
+                      child: Center(
+                        child: Text("Sign up",
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                            )),
+                      ),
+                    )),
+              ),
               Text("Or sign up with",
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(

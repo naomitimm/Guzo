@@ -25,6 +25,7 @@ class AuthTextField extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class PasswordField extends StatefulWidget {
   PasswordField(
       {Key? key,

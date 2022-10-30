@@ -1,4 +1,3 @@
-import 'package:guzo_app/domain/user/user_form_validator.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 class LogIn extends StatefulWidget {
