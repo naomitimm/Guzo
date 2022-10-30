@@ -69,9 +69,11 @@ class _LogInState extends State<LogIn> {
               formKey: _formKey,
               dispatcher: () {
                 final loginBloc = context.read<LoginBloc>();
-                loginBloc.add(LoginRequested(
-                    email: _emailController.text,
-                    password: _passwordController.text));
+                loginBloc.add(
+                  LoginRequested(
+                      email: _emailController.text,
+                      password: _passwordController.text),
+                );
               },
               lable: "Log In",
             ),

@@ -23,7 +23,7 @@ class UserFormValidator {
   }
 
   static String? validateUserName(String? userName) {
-    if (!RegExp("[A-Z]").hasMatch(userName!)) {
+    if (RegExp("[A-Z]").hasMatch(userName!)) {
       return "Upper case letters are not permitted in a user name";
     }
     if (userName.trim().isEmpty) {

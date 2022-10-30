@@ -10,7 +10,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     on<SignupRequested>(_handleSignupRequest);
   }
 
-  void _handleSignupRequest(SignupEvent event, Emitter emit) async {
+  void _handleSignupRequest(SignupRequested event, Emitter emit) async {
     try {
       emit(const SigningUp());
       await authRepository.signup();

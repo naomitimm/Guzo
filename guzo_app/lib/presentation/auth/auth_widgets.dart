@@ -1,3 +1,4 @@
+import 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 class AuthTextField extends StatelessWidget {
@@ -145,13 +146,11 @@ class LoginButton extends StatelessWidget {
       },
       builder: (context, state) {
         return GestureDetector(
-          onTap: state is! LoginRequested
-              ? () {
-                  if (formKey.currentState!.validate()) {
-                    dispatcher();
-                  }
-                }
-              : null,
+          onTap: () {
+            if (formKey.currentState!.validate()) {
+              dispatcher();
+            }
+          },
           child: Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: Container(
@@ -181,30 +180,59 @@ class LoginButton extends StatelessWidget {
 }
 
 class SignupButton extends StatelessWidget {
-  const SignupButton({Key? key}) : super(key: key);
+  final String lable;
+  final GlobalKey<FormState> formKey;
+  final void Function() dispatcher;
+  const SignupButton(
+      {Key? key,
+      required this.lable,
+      required this.formKey,
+      required this.dispatcher})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Container(
-            width: double.infinity,
-            height: 50,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Color.fromARGB(255, 0, 117, 94)),
-            child: Center(
-              child: Text("Sign Up",
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  )),
-            ),
-          )),
+    return BlocConsumer<SignupBloc, SignupState>(
+      listener: (context, state) {
+        if (state is SignupSuccessful) {
+          context.go('/host_page');
+        }
+        if (state is SignupFailed) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.error.toString())));
+        }
+      },
+      builder: (context, state) {
+        return GestureDetector(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                dispatcher();
+              }
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    color: Color.fromARGB(255, 0, 117, 94)),
+                child: Center(
+                  child: state is SigningUp
+                      ? const CircularProgressIndicator(
+                          color: Colors.white,
+                        )
+                      : Text(lable,
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          )),
+                ),
+              ),
+            ));
+      },
     );
   }
 }
