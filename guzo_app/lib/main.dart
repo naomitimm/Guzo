@@ -1,10 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:guzo_app/application/auth/login/bloc/login_bloc.dart';
-import 'package:guzo_app/infrustructure/auth/auth_repository.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
-  runApp(GuzoPages());
+  runApp(const GuzoApp());
 }
 
 final authRepository = AuthRepository();

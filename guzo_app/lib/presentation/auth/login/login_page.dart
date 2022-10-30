@@ -1,5 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:guzo_app/application/auth/login/bloc/login_bloc.dart';
 import 'package:guzo_app/domain/user/user_form_validator.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
@@ -68,7 +66,14 @@ class _LogInState extends State<LogIn> {
             const SizedBox(
               height: 40,
             ),
-            formSubmitButton(),
+            LoginButton(
+                formKey: _formKey,
+                dispatcher: () {
+                  final loginBloc = context.read<LoginBloc>();
+                  loginBloc.add(LoginRequested(
+                      email: _emailController.text,
+                      password: _passwordController.text));
+                }),
             Text("Or log in with",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
@@ -119,33 +124,5 @@ class _LogInState extends State<LogIn> {
         )
       ]),
     ));
-  }
-
-  Widget formSubmitButton() {
-    return GestureDetector(
-      onTap: () => _navigate(),
-      child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Container(
-            width: double.infinity,
-            height: 50,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Color.fromARGB(255, 0, 117, 94)),
-            child: Center(
-              child: Text("Log In",
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  )),
-            ),
-          )),
-    );
-  }
-
-  void _navigate() {
-    context.go('/host_page');
   }
 }

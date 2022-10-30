@@ -148,26 +148,57 @@ class GuzoHeadline extends StatelessWidget {
   }
 }
 
-Widget formSubmitButton1(Function function) {
-  return GestureDetector(
-    onTap: () => function,
-    child: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: Container(
-          width: double.infinity,
-          height: 50,
-          decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: Color.fromARGB(255, 0, 117, 94)),
-          child: Center(
-            child: Text("Log In",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
-                )),
-          ),
-        )),
-  );
+class LoginButton extends StatelessWidget {
+  final void Function() dispatcher;
+  final GlobalKey<FormState> formKey;
+  const LoginButton({Key? key, required this.formKey, required this.dispatcher})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<LoginBloc, LoginState>(
+      listener: (context, state) {
+        if (state is LoginFailed) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.error.toString())));
+        }
+        if (state is LoginSuccesful) {
+          context.go('/host_page');
+        }
+      },
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: state is! LoginRequested
+              ? () {
+                  if (formKey.currentState!.validate()) {
+                    dispatcher();
+                  }
+                }
+              : null,
+          child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    color: Color.fromARGB(255, 0, 117, 94)),
+                child: Center(
+                  child: state is LoggingIn
+                      ? const CircularProgressIndicator(
+                          color: Colors.white,
+                        )
+                      : Text("Log In",
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          )),
+                ),
+              )),
+        );
+      },
+    );
+  }
 }
