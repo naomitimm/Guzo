@@ -11,6 +11,7 @@ export 'package:guzo_app/presentation/auth/login/login_page.dart';
 export 'package:guzo_app/presentation/auth/signup/signup_page.dart';
 
 // nav pages
+export 'package:guzo_app/presentation/on_boarding/on_boarding_screen.dart';
 export 'package:guzo_app/presentation/navPages/host_page.dart';
 export 'package:guzo_app/presentation/navPages/home_page.dart';
 export 'package:guzo_app/presentation/navPages/favorite_page.dart';
@@ -24,7 +25,9 @@ export 'package:guzo_app/domain/nav_pages/home_page/sight_model.dart';
 export 'package:guzo_app/domain/nav_pages/home_page/task_model.dart';
 
 // bloc
+export 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
+
 export 'package:guzo_app/application/auth/login/login_bloc.dart';
 
 // repositories

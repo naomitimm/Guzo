@@ -1,4 +1,3 @@
-import 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
@@ -45,11 +44,7 @@ class GuzoPages extends StatelessWidget {
         GoRoute(
             path: '/',
             builder: (BuildContext context, GoRouterState state) =>
-                const SignUp()),
-        // GoRoute(
-        //     path: '/',
-        //     builder: (BuildContext context, GoRouterState state) =>
-        //         const OnBoarding()),
+                const OnBoarding()),
         GoRoute(
             path: '/signUp_page',
             builder: (BuildContext context, GoRouterState state) =>
