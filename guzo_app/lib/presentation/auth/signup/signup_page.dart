@@ -1,3 +1,4 @@
+import 'package:guzo_app/domain/user/user_form_validator.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 class SignUp extends StatefulWidget {
@@ -10,6 +11,9 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final darktext = AppTheme.myLight();
   final lightText = AppTheme.myDark();
+  final _userNameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,16 +27,10 @@ class _SignUpState extends State<SignUp> {
                 size: 25,
               )),
         ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Text("Guzo",
-              style: GoogleFonts.dancingScript(
-                textStyle: const TextStyle(
-                    color: Color.fromARGB(255, 0, 117, 94),
-                    fontSize: 80,
-                    fontWeight: FontWeight.w800),
-              )),
+        const SizedBox(
+          height: 10,
         ),
+        const Align(alignment: Alignment.topCenter, child: GuzoHeadline()),
         const SizedBox(
           height: 20,
         ),
@@ -53,56 +51,26 @@ class _SignUpState extends State<SignUp> {
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(
             children: [
-              TextFormField(
-                  decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Full Name",
-              )),
+              AuthTextField(
+                  controller: _userNameController,
+                  hintText: "User Name",
+                  validator: UserFormValidator.validateUserName),
               const SizedBox(
                 height: 25,
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Email"),
-              ),
+              AuthTextField(
+                  controller: _emailController,
+                  hintText: "Email",
+                  validator: UserFormValidator.validateEmail),
               const SizedBox(
                 height: 25,
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Password"),
-              ),
-              // const SizedBox(
-              //   height: 25,
-              // ),
-              // TextFormField(
-              //   decoration: const InputDecoration(
-              //       border: OutlineInputBorder(),
-              //       labelText: "Confirm Password"),
-              // ),
+              PasswordField(
+                  controller: _passwordController,
+                  hintText: "Password",
+                  validator: UserFormValidator.validatePassword),
               const SizedBox(
-                height: 40,
-              ),
-              GestureDetector(
-                onTap: () => context.go('/host_page'),
-                child: Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: Container(
-                      width: double.infinity,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          color: Color.fromARGB(255, 0, 117, 94)),
-                      child: Center(
-                        child: Text("Sign Up",
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
-                            )),
-                      ),
-                    )),
+                height: 25,
               ),
               Text("Or sign up with",
                   style: GoogleFonts.montserrat(
@@ -116,10 +84,10 @@ class _SignUpState extends State<SignUp> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  signUpComponent("assets/home_page/google.png"),
-                  signUpComponent("assets/home_page/facebook.png"),
-                  signUpComponent("assets/home_page/twitter.png")
+                children: const [
+                  ExtraAuthRoutes(image: "assets/home_page/google.png"),
+                  ExtraAuthRoutes(image: "assets/home_page/facebook.png"),
+                  ExtraAuthRoutes(image: "assets/home_page/twitter.png"),
                 ],
               ),
               const SizedBox(

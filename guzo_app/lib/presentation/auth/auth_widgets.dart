@@ -1,7 +1,7 @@
 import 'package:guzo_app/presentation/exports.dart';
 
-class EmailField extends StatelessWidget {
-  const EmailField({
+class AuthTextField extends StatelessWidget {
+  const AuthTextField({
     Key? key,
     required this.controller,
     required this.hintText,
@@ -74,35 +74,6 @@ class _PasswordFieldState extends State<PasswordField> {
   }
 }
 
-class AuthButton extends StatelessWidget {
-  const AuthButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Container(
-            width: double.infinity,
-            height: 50,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Color.fromARGB(255, 0, 117, 94)),
-            child: Center(
-              child: Text("Log In",
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  )),
-            ),
-          )),
-    );
-  }
-}
-
 class ExtraAuthRoutes extends StatelessWidget {
   const ExtraAuthRoutes({Key? key, required this.image}) : super(key: key);
 
@@ -148,10 +119,15 @@ class GuzoHeadline extends StatelessWidget {
   }
 }
 
-class LoginButton extends StatelessWidget {
+class AuthSubmitButton extends StatelessWidget {
   final void Function() dispatcher;
   final GlobalKey<FormState> formKey;
-  const LoginButton({Key? key, required this.formKey, required this.dispatcher})
+  final String lable;
+  const AuthSubmitButton(
+      {Key? key,
+      required this.formKey,
+      required this.dispatcher,
+      required this.lable})
       : super(key: key);
 
   @override
@@ -188,7 +164,7 @@ class LoginButton extends StatelessWidget {
                       ? const CircularProgressIndicator(
                           color: Colors.white,
                         )
-                      : Text("Log In",
+                      : Text(lable,
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(
                                 color: Colors.white,

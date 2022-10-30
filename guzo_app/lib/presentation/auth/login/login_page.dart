@@ -52,7 +52,7 @@ class _LogInState extends State<LogIn> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(children: [
-            EmailField(
+            AuthTextField(
                 controller: _emailController,
                 hintText: "Email",
                 validator: UserFormValidator.validateEmail),
@@ -66,14 +66,16 @@ class _LogInState extends State<LogIn> {
             const SizedBox(
               height: 40,
             ),
-            LoginButton(
-                formKey: _formKey,
-                dispatcher: () {
-                  final loginBloc = context.read<LoginBloc>();
-                  loginBloc.add(LoginRequested(
-                      email: _emailController.text,
-                      password: _passwordController.text));
-                }),
+            AuthSubmitButton(
+              formKey: _formKey,
+              dispatcher: () {
+                final loginBloc = context.read<LoginBloc>();
+                loginBloc.add(LoginRequested(
+                    email: _emailController.text,
+                    password: _passwordController.text));
+              },
+              lable: "Log In",
+            ),
             Text("Or log in with",
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
