@@ -35,30 +35,6 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20,
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            //   child: Row(
-            //     children: [
-            //       Text("Sights",
-            //           style: GoogleFonts.montserrat(
-            //             textStyle: const TextStyle(
-            //                 color: Colors.grey,
-            //                 fontSize: 17,
-            //                 fontWeight: FontWeight.w500),
-            //           )),
-            //       const SizedBox(
-            //         width: 50,
-            //       ),
-            //       Text("Places",
-            //           style: GoogleFonts.montserrat(
-            //             textStyle: const TextStyle(
-            //                 color: Colors.grey,
-            //                 fontSize: 17,
-            //                 fontWeight: FontWeight.w500),
-            //           )),
-            //     ],
-            //   ),
-            // ),
             const SizedBox(
               height: 25,
             ),
@@ -69,8 +45,10 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: ((context, index) {
-                    return sights(Sight.sights[index].imageUrl,
-                        Sight.sights[index].name, Sight.sights[index].location);
+                    return HomeSightCard(
+                        image: Sight.sights[index].imageUrl,
+                        location: Sight.sights[index].location,
+                        name: Sight.sights[index].name);
                   })),
             ),
             const SizedBox(
@@ -83,111 +61,11 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: ((context, index) {
-                    return task(
-                        Task.tasks[index].imageUrl, Task.tasks[index].title);
+                    return HomeTaskCard(
+                        image: Task.tasks[index].imageUrl,
+                        task: Task.tasks[index].title);
                   })),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget sights(String image, String name, String location) {
-    return GestureDetector(
-      onTap: () {
-        context.go('/sight_detail_page');
-      },
-      child: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Container(
-              height: 250,
-              width: 250,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      image,
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(30))),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Container(
-              height: 250,
-              width: 250,
-              decoration: BoxDecoration(
-                  color: const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.2),
-                  borderRadius: const BorderRadius.all(Radius.circular(30))),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(name,
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
-                        )),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: Colors.white,
-                        ),
-                        Text(location,
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
-                            ))
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget task(String image, String text) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Container(
-        width: 150,
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: const Color.fromARGB(255, 0, 117, 94),
-            ),
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0, right: 10),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Text(text,
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700),
-                    )),
-              ),
-            )
           ],
         ),
       ),

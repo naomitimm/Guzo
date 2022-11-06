@@ -35,3 +35,6 @@ export 'package:guzo_app/infrustructure/auth/auth_repository.dart';
 
 // validator
 export 'package:guzo_app/domain/user/user_form_validator.dart';
+
+// widgets
+export 'package:guzo_app/presentation/navPages/widgets/cards.dart';

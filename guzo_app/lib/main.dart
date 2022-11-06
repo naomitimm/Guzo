@@ -44,7 +44,11 @@ class GuzoPages extends StatelessWidget {
         GoRoute(
             path: '/',
             builder: (BuildContext context, GoRouterState state) =>
-                const OnBoarding()),
+                const HostPage()),
+        // GoRoute(
+        //     path: '/',
+        //     builder: (BuildContext context, GoRouterState state) =>
+        //         const OnBoarding()),
         GoRoute(
             path: '/signUp_page',
             builder: (BuildContext context, GoRouterState state) =>
