@@ -8,7 +8,7 @@ class HostPage extends StatefulWidget {
 }
 
 class _HostPageState extends State<HostPage> {
-  int myIndex = 2;
+  int myIndex = 3;
   List myPages = [
     const HomePage(),
     const SearchPage(),

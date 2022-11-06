@@ -1,4 +1,5 @@
 import 'package:guzo_app/presentation/exports.dart';
+import 'package:guzo_app/presentation/navPages/widgets/buttons.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -22,13 +23,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   icon: const Icon(Icons.settings),
                   iconSize: 25),
             ),
-            Text(
-              "Profile",
-              style: GoogleFonts.montserrat(
-                  color: Colors.black,
-                  fontSize: 35,
-                  fontWeight: FontWeight.w500),
-            ),
+            const PageHeadline(headline: "Profile"),
             const SizedBox(
               height: 20,
             ),
@@ -67,63 +62,25 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(
                   height: 30,
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    width: double.infinity,
-                    height: 40,
-                    decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 0, 117, 94),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: Center(
-                      child: Text(
-                        "Edit Profile",
-                        style: GoogleFonts.montserrat(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ),
-                )
+                WideGreenButton(dispatcher: () {}, text: "Edit profile")
               ],
             ),
             const SizedBox(
               height: 10,
             ),
-            infoComponent(
-                IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                "Add your current city"),
-            infoComponent(
-                IconButton(
+            ProfileInfoCard(
+                icon: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                text: "Add your current city"),
+            ProfileInfoCard(
+                icon: IconButton(
                     onPressed: () {}, icon: const Icon(Icons.date_range)),
-                "Joined in July 2022"),
-            infoComponent(
-                IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                "Write details about you")
+                text: "Joined in July 2022"),
+            ProfileInfoCard(
+                icon: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                text: "Write details about you"),
           ],
         ),
       ),
-    );
-  }
-
-  Widget infoComponent(IconButton icon, String text) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: icon,
-          iconSize: 25,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            text,
-            style: GoogleFonts.montserrat(color: Colors.black, fontSize: 15),
-          ),
-        )
-      ],
     );
   }
 }

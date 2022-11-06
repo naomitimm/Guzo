@@ -323,3 +323,31 @@ class FavoritesCard extends StatelessWidget {
     );
   }
 }
+
+class ProfileInfoCard extends StatelessWidget {
+  final IconButton icon;
+  final String text;
+  const ProfileInfoCard({Key? key, required this.icon, required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: icon,
+          iconSize: 25,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            text,
+            style: GoogleFonts.montserrat(color: Colors.black, fontSize: 15),
+          ),
+        )
+      ],
+    );
+  }
+}
