@@ -1,4 +1,5 @@
 import 'package:guzo_app/presentation/exports.dart';
+import 'package:guzo_app/presentation/navPages/widgets/buttons.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -26,21 +27,21 @@ class _NoFavoritesState extends State<NoFavorites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
+      backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         child: ListView(
           children: [
-            const SizedBox(
-              height: 20,
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const FaIcon(
+                    FontAwesomeIcons.plane,
+                    size: 25,
+                  )),
             ),
-            Text("Favorites",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w500),
-                )),
+            const PageHeadline(headline: "Favorites"),
             const SizedBox(
               height: 20,
             ),
@@ -76,26 +77,11 @@ class _NoFavoritesState extends State<NoFavorites> {
                   const SizedBox(
                     height: 40,
                   ),
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: _browse,
-                    child: Container(
-                      width: double.infinity,
-                      height: 40,
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 0, 117, 94),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Center(
-                        child: Text("Browse Locations",
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500),
-                            )),
-                      ),
-                    ),
-                  )
+                  WideGreenButton(
+                      dispatcher: () {
+                        context.go('/host_page');
+                      },
+                      text: "Browse Locations")
                 ],
               ),
             )
@@ -103,12 +89,6 @@ class _NoFavoritesState extends State<NoFavorites> {
         ),
       ),
     );
-  }
-
-  void _browse() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return const HostPage();
-    }));
   }
 }
 
@@ -122,10 +102,11 @@ class HasFavorites extends StatefulWidget {
 class _HasFavoritesState extends State<HasFavorites> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         child: ListView(
           children: [
             Align(
@@ -137,103 +118,21 @@ class _HasFavoritesState extends State<HasFavorites> {
                     size: 25,
                   )),
             ),
-            Text("Favorites",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w500),
-                )),
+            const PageHeadline(headline: "Favorites"),
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  Text("Recent",
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500),
-                      )),
-                  const SizedBox(
-                    width: 50,
-                  ),
-                  Text("Alphabet",
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  favroiteCard("Gondar Castel", "Ethiopia",
-                      'assets/home_page/ethiopia.jpg'),
-                  favroiteCard("Gondar Castel", "Ethiopia",
-                      'assets/home_page/ethiopia.jpg'),
-                  favroiteCard("Gondar Castel", "Ethiopia",
-                      'assets/home_page/ethiopia.jpg')
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget favroiteCard(String name, String location, String image) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        height: 150,
-        width: double.infinity,
-        decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
-            border: Border.all(
-              color: Colors.black.withOpacity(0.2),
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        child: Row(
-          children: [
-            Container(
-              height: double.infinity,
-              width: 150,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10)),
-                  image: DecorationImage(
-                      image: AssetImage(image), fit: BoxFit.cover)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: double.infinity,
-                width: 140,
-                child: Stack(
-                  children: [
-                    Align(alignment: Alignment.topLeft, child: Text(name)),
-                    Positioned(top: 20, child: Text(location)),
-                    Align(
-                        alignment: Alignment.bottomRight,
-                        child: IconButton(
-                            onPressed: () {}, icon: const Icon(Icons.delete)))
-                  ],
-                ),
-              ),
+            SizedBox(
+              height: height / (3 / 4),
+              width: double.infinity,
+              child: ListView.builder(
+                  itemCount: Favorite.favorites.length,
+                  itemBuilder: (context, index) {
+                    return FavoritesCard(
+                        image: Favorite.favorites[index].imageUrl,
+                        location: Favorite.favorites[index].location,
+                        name: Favorite.favorites[index].name);
+                  }),
             )
           ],
         ),

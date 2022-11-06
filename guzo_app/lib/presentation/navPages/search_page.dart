@@ -1,4 +1,3 @@
-import 'package:guzo_app/domain/nav_pages/search_page/catagory_model.dart';
 import 'package:guzo_app/presentation/exports.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -25,13 +24,7 @@ class _SearchPageState extends State<SearchPage> {
                   size: 25,
                 )),
           ),
-          Text("Explore",
-              style: GoogleFonts.montserrat(
-                textStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 35,
-                    fontWeight: FontWeight.w500),
-              )),
+          const PageHeadline(headline: "Explore"),
           const SizedBox(
             height: 20,
           ),

@@ -263,3 +263,63 @@ class SearchRecommendedCard extends StatelessWidget {
     );
   }
 }
+
+class FavoritesCard extends StatelessWidget {
+  final String image;
+  final String name;
+  final String location;
+  const FavoritesCard(
+      {Key? key,
+      required this.image,
+      required this.location,
+      required this.name})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+        height: 150,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
+            border: Border.all(
+              color: Colors.black.withOpacity(0.2),
+            ),
+            borderRadius: const BorderRadius.all(Radius.circular(10))),
+        child: Row(
+          children: [
+            Container(
+              height: double.infinity,
+              width: 150,
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10)),
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                height: double.infinity,
+                width: 140,
+                child: Stack(
+                  children: [
+                    Align(alignment: Alignment.topLeft, child: Text(name)),
+                    Positioned(top: 20, child: Text(location)),
+                    Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.delete)))
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

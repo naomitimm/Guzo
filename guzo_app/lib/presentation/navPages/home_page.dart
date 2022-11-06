@@ -1,5 +1,4 @@
 import 'package:guzo_app/presentation/exports.dart';
-import 'package:guzo_app/presentation/navPages/widgets/texts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,9 +29,6 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20,
             ),
-            const SizedBox(
-              height: 25,
-            ),
             SizedBox(
               height: 250,
               width: double.infinity,
@@ -47,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   })),
             ),
             const SizedBox(
-              height: 40,
+              height: 60,
             ),
             SizedBox(
               height: 100,

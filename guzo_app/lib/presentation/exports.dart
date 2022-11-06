@@ -23,11 +23,12 @@ export 'package:guzo_app/presentation/navPages/sight_detail_page.dart';
 export '../../domain/nav_pages/search_page/explore_sights_model.dart';
 export 'package:guzo_app/domain/nav_pages/home_page/sight_model.dart';
 export 'package:guzo_app/domain/nav_pages/home_page/task_model.dart';
+export 'package:guzo_app/domain/nav_pages/search_page/catagory_model.dart';
+export 'package:guzo_app/domain/nav_pages/favorites_page/favorite_model.dart';
 
 // bloc
 export 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
-
 export 'package:guzo_app/application/auth/login/login_bloc.dart';
 
 // repositories
@@ -38,3 +39,4 @@ export 'package:guzo_app/domain/user/user_form_validator.dart';
 
 // widgets
 export 'package:guzo_app/presentation/navPages/widgets/cards.dart';
+export 'package:guzo_app/presentation/navPages/widgets/texts.dart';
