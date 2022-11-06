@@ -1,4 +1,5 @@
 import 'package:guzo_app/presentation/exports.dart';
+import 'package:guzo_app/presentation/navPages/widgets/texts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,13 +26,7 @@ class _HomePageState extends State<HomePage> {
                     size: 25,
                   )),
             ),
-            Text("Discover",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w500),
-                )),
+            const PageHeadline(headline: "Discover"),
             const SizedBox(
               height: 20,
             ),
