@@ -1,5 +1,4 @@
 import 'package:guzo_app/presentation/exports.dart';
-import 'package:guzo_app/presentation/navPages/widgets/buttons.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);

@@ -41,3 +41,4 @@ export 'package:guzo_app/domain/user/user_form_validator.dart';
 // widgets
 export 'package:guzo_app/presentation/navPages/widgets/cards.dart';
 export 'package:guzo_app/presentation/navPages/widgets/texts.dart';
+export 'package:guzo_app/presentation/navPages/widgets/buttons.dart';

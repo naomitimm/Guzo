@@ -1,5 +1,6 @@
 import 'package:guzo_app/application/navigation/navigation_cubit.dart';
 import 'package:guzo_app/presentation/exports.dart';
+import 'package:guzo_app/presentation/navPages/sight_details_page.dart';
 
 void main() {
   runApp(const GuzoApp());
@@ -48,6 +49,8 @@ class GuzoPages extends StatelessWidget {
                 const MaterialPage(child: OnBoardingPage()),
               if (state is DashboardRoute)
                 const MaterialPage(child: HostPage()),
+              if (state is SightDetailsRoute)
+                MaterialPage(child: SightDetailsPage(sight: state.sight))
             ],
             onPopPage: (route, result) => route.didPop(result),
           ),

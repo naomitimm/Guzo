@@ -4,19 +4,19 @@ class HomeSightCard extends StatelessWidget {
   final String image;
   final String name;
   final String location;
+  final void Function() dispatcher;
   const HomeSightCard(
       {Key? key,
       required this.image,
       required this.location,
-      required this.name})
+      required this.name,
+      required this.dispatcher})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context.go('/sight_detail_page');
-      },
+      onTap: dispatcher,
       child: Stack(
         children: [
           Padding(

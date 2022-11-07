@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final navCubit = context.read<NavigationCubit>();
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
@@ -37,9 +38,13 @@ class _HomePageState extends State<HomePage> {
                   itemCount: 5,
                   itemBuilder: ((context, index) {
                     return HomeSightCard(
-                        image: Sight.sights[index].imageUrl,
-                        location: Sight.sights[index].location,
-                        name: Sight.sights[index].name);
+                      image: Sight.sights[index].imageUrl,
+                      location: Sight.sights[index].location,
+                      name: Sight.sights[index].name,
+                      dispatcher: () {
+                        navCubit.toSightDetailsScreen(Sight.sights[index]);
+                      },
+                    );
                   })),
             ),
             const SizedBox(
