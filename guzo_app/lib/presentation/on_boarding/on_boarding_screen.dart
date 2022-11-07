@@ -1,13 +1,13 @@
 import 'package:guzo_app/presentation/exports.dart';
 
-class OnBoarding extends StatefulWidget {
-  const OnBoarding({Key? key}) : super(key: key);
+class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({Key? key}) : super(key: key);
 
   @override
-  State<OnBoarding> createState() => _OnBoardingState();
+  State<OnBoardingPage> createState() => _OnBoardingPageState();
 }
 
-class _OnBoardingState extends State<OnBoarding> {
+class _OnBoardingPageState extends State<OnBoardingPage> {
   final pageController = PageController();
   bool isLastPage = false;
   @override
@@ -47,17 +47,20 @@ class _OnBoardingState extends State<OnBoarding> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
-                onTap: () => context.go('/signUp_page'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => SignupPage())));
+                },
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
-                      width: 150,
+                      width: 170,
                       height: 50,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color.fromARGB(255, 0, 117, 94)),
                       child: Center(
-                        child: Text("Create account",
+                        child: Text("Signup",
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,
@@ -68,17 +71,22 @@ class _OnBoardingState extends State<OnBoarding> {
                     )),
               ),
               GestureDetector(
-                onTap: () => context.go('/login_page'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const LoginPage())));
+                },
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
-                      width: 150,
+                      width: 170,
                       height: 50,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color.fromARGB(255, 0, 117, 94)),
                       child: Center(
-                        child: Text("Log in",
+                        child: Text("Login",
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,

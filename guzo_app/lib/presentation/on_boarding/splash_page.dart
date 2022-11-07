@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (BuildContext context) {
-                      return const LogIn();
+                      return const LoginPage();
                     }));
                   },
                   child: const Icon(Icons.navigate_next_rounded),

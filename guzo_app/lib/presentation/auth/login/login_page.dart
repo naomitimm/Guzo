@@ -1,13 +1,13 @@
 import 'package:guzo_app/presentation/exports.dart';
 
-class LogIn extends StatefulWidget {
-  const LogIn({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LogIn> createState() => _LogInState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LogInState extends State<LogIn> {
+class _LoginPageState extends State<LoginPage> {
   final darktext = AppTheme.myLight();
   final lightText = AppTheme.myDark();
   final _emailController = TextEditingController();
@@ -15,6 +15,7 @@ class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final navCubit = context.read<NavigationCubit>();
     return Scaffold(
         body: Form(
       key: _formKey,
@@ -22,7 +23,9 @@ class _LogInState extends State<LogIn> {
         Align(
           alignment: Alignment.topLeft,
           child: IconButton(
-              onPressed: () => context.go('/'),
+              onPressed: () {
+                navCubit.toOnBoardingScreen();
+              },
               icon: const FaIcon(
                 FontAwesomeIcons.angleLeft,
                 size: 25,
@@ -112,7 +115,9 @@ class _LogInState extends State<LogIn> {
                   width: 5,
                 ),
                 GestureDetector(
-                  onTap: () => context.go('/signUp_page'),
+                  onTap: () {
+                    navCubit.toSignupScreen();
+                  },
                   child: Text("Sign Up",
                       style: GoogleFonts.montserrat(
                         textStyle: const TextStyle(

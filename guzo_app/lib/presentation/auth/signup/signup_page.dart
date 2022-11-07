@@ -1,22 +1,23 @@
-import 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class SignupPage extends StatelessWidget {
+  SignupPage({Key? key}) : super(key: key);
 
-  @override
-  State<SignUp> createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
   final darktext = AppTheme.myLight();
+
   final lightText = AppTheme.myDark();
+
   final _userNameController = TextEditingController();
+
   final _emailController = TextEditingController();
+
   final _passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    final navCubit = context.read<NavigationCubit>();
     return Scaffold(
       body: Form(
         key: _formKey,
@@ -24,7 +25,9 @@ class _SignUpState extends State<SignUp> {
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-                onPressed: () => context.go('/'),
+                onPressed: () {
+                  navCubit.toOnBoardingScreen();
+                },
                 icon: const FaIcon(
                   FontAwesomeIcons.angleLeft,
                   size: 25,
@@ -121,7 +124,9 @@ class _SignUpState extends State<SignUp> {
                       width: 5,
                     ),
                     GestureDetector(
-                      onTap: () => context.go('/login_page'),
+                      onTap: () {
+                        navCubit.toLoginScreen();
+                      },
                       child: Text("Log In",
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(
@@ -139,30 +144,6 @@ class _SignUpState extends State<SignUp> {
             ),
           )
         ]),
-      ),
-    );
-  }
-
-  Widget signUpComponent(String image) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: const Color.fromARGB(255, 203, 203, 203)),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        width: 70,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.scaleDown)),
-          ),
-        ),
       ),
     );
   }

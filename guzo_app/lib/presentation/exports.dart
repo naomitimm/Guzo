@@ -30,6 +30,7 @@ export 'package:guzo_app/domain/nav_pages/favorites_page/favorite_model.dart';
 export 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:guzo_app/application/auth/login/login_bloc.dart';
+export 'package:guzo_app/application/navigation/navigation_cubit.dart';
 
 // repositories
 export 'package:guzo_app/infrustructure/auth/auth_repository.dart';
