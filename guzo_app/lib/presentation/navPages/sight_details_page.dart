@@ -9,6 +9,7 @@ class SightDetailsPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final height = size.height;
     final width = size.width;
+    const int _value = 1;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(children: [
@@ -21,13 +22,6 @@ class SightDetailsPage extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              // Container(
-              //   height: height / 2,
-              //   width: double.infinity,
-              //   decoration: BoxDecoration(
-              //       image: DecorationImage(
-              //           image: AssetImage(sight.imageUrl), fit: BoxFit.cover)),
-              // ),
               Container(
                 height: height / 2,
                 width: double.infinity,
@@ -82,7 +76,31 @@ class SightDetailsPage extends StatelessWidget {
               )
             ],
           ),
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              DescriptionHeadline(color: Colors.black, text: "Description"),
+              DetailsDescription(
+                  color: Colors.black,
+                  text:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+              SizedBox(
+                height: 15,
+              ),
+              DetailsPersonNightCard(),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              BookNowCard()
+            ],
+          ),
+        ),
       ]),
     );
   }

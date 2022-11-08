@@ -351,3 +351,123 @@ class ProfileInfoCard extends StatelessWidget {
     );
   }
 }
+
+class DetailsPersonNightCard extends StatelessWidget {
+  const DetailsPersonNightCard({
+    Key? key,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Container(
+          height: height / 16,
+          width: width / 2.3,
+          decoration: BoxDecoration(
+            border: Border.all(
+                color: const Color.fromRGBO(41, 171, 135, 1), width: 0.7),
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            color: Colors.white,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("1 Person",
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                        color: Color.fromRGBO(41, 171, 135, 1),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: const FaIcon(
+                    FontAwesomeIcons.chevronDown,
+                    color: Color.fromRGBO(41, 171, 135, 1),
+                    size: 18,
+                  ))
+            ],
+          ),
+        ),
+        Container(
+          height: height / 16,
+          width: width / 2.3,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color.fromRGBO(41, 171, 135, 1),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("1 Night",
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: const FaIcon(
+                    FontAwesomeIcons.chevronDown,
+                    color: Colors.white,
+                    size: 18,
+                  ))
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class BookNowCard extends StatelessWidget {
+  const BookNowCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
+    return Container(
+      width: double.infinity,
+      height: height / 10,
+      decoration: const BoxDecoration(),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        const DescriptionHeadline(
+            color: Color.fromRGBO(41, 171, 135, 1), text: "\$114"),
+        Container(
+          height: height / 16,
+          width: width / 1.7,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color.fromRGBO(0, 117, 94, 1),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("Book Now",
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600),
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: const FaIcon(
+                    FontAwesomeIcons.chevronRight,
+                    color: Colors.white,
+                    size: 18,
+                  ))
+            ],
+          ),
+        ),
+      ]),
+    );
+  }
+}
