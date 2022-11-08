@@ -18,6 +18,7 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
+
     return Scaffold(
       body: Form(
         key: _formKey,
@@ -78,15 +79,22 @@ class SignupPage extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                SignupButton(
-                  lable: "Sign Up",
-                  formKey: _formKey,
-                  dispatcher: () {
-                    final signupBloc = context.read<SignupBloc>();
-                    signupBloc.add(SignupRequested(
-                        userName: _userNameController.text,
-                        email: _emailController.text,
-                        password: _passwordController.text));
+                BlocConsumer<SignupBloc, SignupState>(
+                  listener: (context, state) {
+                    navCubit.toDashboardScreen();
+                  },
+                  builder: (context, state) {
+                    return SignupButton(
+                      lable: "Sign Up",
+                      formKey: _formKey,
+                      dispatcher: () {
+                        final signupBloc = context.read<SignupBloc>();
+                        signupBloc.add(SignupRequested(
+                            userName: _userNameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text));
+                      },
+                    );
                   },
                 ),
                 Text("Or sign up with",

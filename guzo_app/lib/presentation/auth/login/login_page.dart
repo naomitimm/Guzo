@@ -68,17 +68,24 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 40,
             ),
-            LoginButton(
-              formKey: _formKey,
-              dispatcher: () {
-                final loginBloc = context.read<LoginBloc>();
-                loginBloc.add(
-                  LoginRequested(
-                      email: _emailController.text,
-                      password: _passwordController.text),
+            BlocConsumer<LoginBloc, LoginState>(
+              listener: (context, state) {
+                navCubit.toDashboardScreen();
+              },
+              builder: (context, state) {
+                return LoginButton(
+                  formKey: _formKey,
+                  dispatcher: () {
+                    final loginBloc = context.read<LoginBloc>();
+                    loginBloc.add(
+                      LoginRequested(
+                          email: _emailController.text,
+                          password: _passwordController.text),
+                    );
+                  },
+                  lable: "Log In",
                 );
               },
-              lable: "Log In",
             ),
             Text("Or log in with",
                 style: GoogleFonts.montserrat(
