@@ -441,7 +441,7 @@ class BookNowCard extends StatelessWidget {
         const DescriptionHeadline(color: Colors.black, text: "\$114"),
         Container(
           height: height / 16,
-          width: width / 1.7,
+          width: width / 1.5,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             color: Colors.black,

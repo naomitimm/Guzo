@@ -88,14 +88,11 @@ class SightDetailsPage extends StatelessWidget {
                   text:
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
               SizedBox(
-                height: 15,
+                height: 25,
               ),
               DetailsPersonNightCard(),
               SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 20,
+                height: 40,
               ),
               BookNowCard()
             ],
