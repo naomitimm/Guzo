@@ -57,7 +57,7 @@ class ExploreSightDetailsPage extends StatelessWidget {
                 left: 5,
                 child: IconButton(
                     onPressed: () {
-                      navCubit.toSearchScreen();
+                      navCubit.toDashboardScreen();
                     },
                     icon: const FaIcon(
                       FontAwesomeIcons.chevronLeft,
