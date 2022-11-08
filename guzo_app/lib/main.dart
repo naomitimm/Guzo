@@ -1,6 +1,4 @@
-import 'package:guzo_app/application/navigation/navigation_cubit.dart';
 import 'package:guzo_app/presentation/exports.dart';
-import 'package:guzo_app/presentation/navPages/sight_details_page.dart';
 
 void main() {
   runApp(const GuzoApp());
@@ -26,13 +24,13 @@ class GuzoApp extends StatelessWidget {
             BlocProvider(
                 create: (context) => SignupBloc(authRepository: authRepository))
           ],
-          child: GuzoPages(),
+          child: const GuzoPages(),
         ));
   }
 }
 
 class GuzoPages extends StatelessWidget {
-  GuzoPages({Key? key}) : super(key: key);
+  const GuzoPages({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

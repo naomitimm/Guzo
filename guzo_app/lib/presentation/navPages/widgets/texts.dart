@@ -13,3 +13,51 @@ class PageHeadline extends StatelessWidget {
         ));
   }
 }
+
+class DetailsDescription extends StatelessWidget {
+  final String text;
+  final Color color;
+  const DetailsDescription({Key? key, required this.color, required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        style: GoogleFonts.montserrat(
+          textStyle: TextStyle(
+              color: color, fontSize: 15, fontWeight: FontWeight.w300),
+        ));
+  }
+}
+
+class DetailsHeadline extends StatelessWidget {
+  final Color color;
+  final String text;
+  const DetailsHeadline({Key? key, required this.color, required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        style: GoogleFonts.montserrat(
+          textStyle: TextStyle(
+              color: color, fontSize: 25, fontWeight: FontWeight.w500),
+        ));
+  }
+}
+
+class DetailsMiniHeadline extends StatelessWidget {
+  final Color color;
+  final String text;
+  const DetailsMiniHeadline({Key? key, required this.color, required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        style: GoogleFonts.montserrat(
+          textStyle: TextStyle(
+              color: color, fontSize: 20, fontWeight: FontWeight.w300),
+        ));
+  }
+}

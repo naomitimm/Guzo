@@ -18,6 +18,7 @@ export 'package:guzo_app/presentation/navPages/favorite_page.dart';
 export 'package:guzo_app/presentation/navPages/profile_page.dart';
 export 'package:guzo_app/presentation/navPages/search_page.dart';
 export 'package:guzo_app/presentation/navPages/sight_detail_page.dart';
+export 'package:guzo_app/presentation/navPages/sight_details_page.dart';
 
 // models
 export '../../domain/nav_pages/search_page/explore_sights_model.dart';

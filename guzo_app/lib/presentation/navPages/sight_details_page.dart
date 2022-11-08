@@ -6,9 +6,84 @@ class SightDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
     return Scaffold(
-      backgroundColor: Colors.pink[100],
-      body: Text(sight.name),
+      backgroundColor: Colors.white,
+      body: ListView(children: [
+        Container(
+          height: height / 2,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(sight.imageUrl), fit: BoxFit.cover)),
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              // Container(
+              //   height: height / 2,
+              //   width: double.infinity,
+              //   decoration: BoxDecoration(
+              //       image: DecorationImage(
+              //           image: AssetImage(sight.imageUrl), fit: BoxFit.cover)),
+              // ),
+              Container(
+                height: height / 2,
+                width: double.infinity,
+                decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),
+              ),
+              Positioned(
+                child: Container(
+                  height: height / 17,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25))),
+                ),
+              ),
+              Positioned(
+                bottom: height - (height - 50),
+                left: width - (width - 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DetailsHeadline(color: Colors.white, text: sight.name),
+                    DetailsMiniHeadline(
+                        color: Colors.white, text: sight.location)
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 5,
+                left: 5,
+                child: IconButton(
+                    onPressed: () {},
+                    icon: const FaIcon(
+                      FontAwesomeIcons.chevronLeft,
+                      color: Colors.white,
+                      size: 25,
+                    )),
+              ),
+              Positioned(
+                bottom: height - (height - 20),
+                right: width - (width - 15),
+                child: CircleAvatar(
+                  backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.favorite_outline,
+                        color: Colors.white,
+                      )),
+                ),
+              )
+            ],
+          ),
+        )
+      ]),
     );
   }
 }
