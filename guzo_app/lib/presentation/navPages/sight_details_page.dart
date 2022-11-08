@@ -9,7 +9,8 @@ class SightDetailsPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final height = size.height;
     final width = size.width;
-    const int _value = 1;
+    final navCubit = context.read<NavigationCubit>();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(children: [
@@ -54,7 +55,9 @@ class SightDetailsPage extends StatelessWidget {
                 top: 5,
                 left: 5,
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navCubit.toDashboardScreen();
+                    },
                     icon: const FaIcon(
                       FontAwesomeIcons.chevronLeft,
                       color: Colors.white,
