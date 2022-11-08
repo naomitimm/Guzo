@@ -11,6 +11,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
+    final navCubit = context.read<NavigationCubit>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -77,7 +78,11 @@ class _SearchPageState extends State<SearchPage> {
                       image: ExploreSight.historicalSites[index].imageUrl,
                       location: ExploreSight.historicalSites[index].name,
                       name: ExploreSight.historicalSites[index].location,
-                      title: "Historical Sites");
+                      title: "Historical Sites",
+                      dispatcher: () {
+                        navCubit.toExploreSightDetailsScreen(
+                            ExploreSight.historicalSites[index]);
+                      });
                 })),
           ),
           SizedBox(
@@ -88,10 +93,15 @@ class _SearchPageState extends State<SearchPage> {
                 itemCount: 3,
                 itemBuilder: ((context, index) {
                   return SearchRecommendedCard(
-                      image: ExploreSight.deserts[index].imageUrl,
-                      location: ExploreSight.deserts[index].name,
-                      name: ExploreSight.deserts[index].location,
-                      title: "Desserts");
+                    image: ExploreSight.deserts[index].imageUrl,
+                    location: ExploreSight.deserts[index].name,
+                    name: ExploreSight.deserts[index].location,
+                    title: "Desserts",
+                    dispatcher: () {
+                      navCubit.toExploreSightDetailsScreen(
+                          ExploreSight.deserts[index]);
+                    },
+                  );
                 })),
           ),
           SizedBox(
@@ -105,7 +115,11 @@ class _SearchPageState extends State<SearchPage> {
                       image: ExploreSight.mountains[index].imageUrl,
                       location: ExploreSight.mountains[index].name,
                       name: ExploreSight.mountains[index].location,
-                      title: "Mountains");
+                      title: "Mountains",
+                      dispatcher: () {
+                        navCubit.toExploreSightDetailsScreen(
+                            ExploreSight.mountains[index]);
+                      });
                 })),
           ),
         ]),
