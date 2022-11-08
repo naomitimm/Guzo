@@ -438,14 +438,13 @@ class BookNowCard extends StatelessWidget {
       height: height / 10,
       decoration: const BoxDecoration(),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        const DescriptionHeadline(
-            color: Color.fromRGBO(41, 171, 135, 1), text: "\$114"),
+        const DescriptionHeadline(color: Colors.black, text: "\$114"),
         Container(
           height: height / 16,
           width: width / 1.7,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            color: Color.fromRGBO(0, 117, 94, 1),
+            color: Colors.black,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
