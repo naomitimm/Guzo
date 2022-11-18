@@ -22,7 +22,12 @@ class GuzoApp extends StatelessWidget {
             BlocProvider(
                 create: (context) => LoginBloc(authRepository: authRepository)),
             BlocProvider(
-                create: (context) => SignupBloc(authRepository: authRepository))
+                create: (context) =>
+                    SignupBloc(authRepository: authRepository)),
+            BlocProvider(
+              create: (context) => FavoritesBloc()..add(LoadFavorites()),
+              child: Container(),
+            )
           ],
           child: const GuzoPages(),
         ));

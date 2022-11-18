@@ -4,7 +4,9 @@ part of 'favorites_bloc.dart';
 abstract class FavoritesEvent extends Equatable {}
 
 class LoadFavorites extends FavoritesEvent {
-  LoadFavorites();
+  final List<Sight> sights;
+
+  LoadFavorites({this.sights = const <Sight>[]});
   @override
   List<Object?> get props => [];
 }
