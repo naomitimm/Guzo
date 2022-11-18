@@ -314,8 +314,28 @@ class FavoritesCard extends StatelessWidget {
                 width: 140,
                 child: Stack(
                   children: [
-                    Align(alignment: Alignment.topLeft, child: Text(name)),
-                    Positioned(top: 20, child: Text(location)),
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          name,
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        )),
+                    Positioned(
+                        top: 20,
+                        child: Text(
+                          location,
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        )),
                     Align(
                         alignment: Alignment.bottomRight,
                         child: IconButton(
