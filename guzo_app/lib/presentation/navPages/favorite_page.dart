@@ -10,86 +10,91 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
-    // return const HasFavorites();
-    return const NoFavorites();
+    return const HasFavorites();
+    // return const NoFavorites();
   }
 }
 
-class NoFavorites extends StatefulWidget {
-  const NoFavorites({Key? key}) : super(key: key);
+// class NoFavorites extends StatefulWidget {
+//   const NoFavorites({Key? key}) : super(key: key);
 
-  @override
-  State<NoFavorites> createState() => _NoFavoritesState();
-}
+//   @override
+//   State<NoFavorites> createState() => _NoFavoritesState();
+// }
 
-class _NoFavoritesState extends State<NoFavorites> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-        child: ListView(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.plane,
-                    size: 25,
-                  )),
-            ),
-            const PageHeadline(headline: "Favorites"),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 300,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/favorites_page/bike.png'),
-                      fit: BoxFit.cover)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  Text("No favorites yet.",
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500),
-                      )),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text("Browse our app to pick out your favorite locations.",
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                        ),
-                      )),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  WideGreenButton(
-                      dispatcher: () {
-                        context.go('/host_page');
-                      },
-                      text: "Browse Locations")
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class _NoFavoritesState extends State<NoFavorites> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       body: BlocBuilder<FavoritesBloc, FavoritesState>(
+//         builder: (context, state) {
+//           return Padding(
+//             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+//             child: ListView(
+//               children: [
+//                 Align(
+//                   alignment: Alignment.topRight,
+//                   child: IconButton(
+//                       onPressed: () {},
+//                       icon: const FaIcon(
+//                         FontAwesomeIcons.plane,
+//                         size: 25,
+//                       )),
+//                 ),
+//                 const PageHeadline(headline: "Favorites"),
+//                 const SizedBox(
+//                   height: 20,
+//                 ),
+//                 Container(
+//                   height: 300,
+//                   width: double.infinity,
+//                   decoration: const BoxDecoration(
+//                       image: DecorationImage(
+//                           image: AssetImage('assets/favorites_page/bike.png'),
+//                           fit: BoxFit.cover)),
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.all(10.0),
+//                   child: Column(
+//                     children: [
+//                       Text("No favorites yet.",
+//                           style: GoogleFonts.montserrat(
+//                             textStyle: const TextStyle(
+//                                 color: Colors.black,
+//                                 fontSize: 15,
+//                                 fontWeight: FontWeight.w500),
+//                           )),
+//                       const SizedBox(
+//                         height: 10,
+//                       ),
+//                       Text(
+//                           "Browse our app to pick out your favorite locations.",
+//                           style: GoogleFonts.montserrat(
+//                             textStyle: const TextStyle(
+//                               color: Colors.black,
+//                               fontSize: 12,
+//                             ),
+//                           )),
+//                       const SizedBox(
+//                         height: 40,
+//                       ),
+//                       WideGreenButton(
+//                           dispatcher: () {
+//                             context.go('/host_page');
+//                           },
+//                           text: "Browse Locations")
+//                     ],
+//                   ),
+//                 )
+//               ],
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
 
 class HasFavorites extends StatefulWidget {
   const HasFavorites({Key? key}) : super(key: key);
@@ -104,37 +109,50 @@ class _HasFavoritesState extends State<HasFavorites> {
     final size = MediaQuery.of(context).size;
     final height = size.height;
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-        child: ListView(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.plane,
-                    size: 25,
-                  )),
-            ),
-            const PageHeadline(headline: "Favorites"),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: height / (3 / 4),
-              width: double.infinity,
-              child: ListView.builder(
-                  itemCount: Favorite.favorites.length,
-                  itemBuilder: (context, index) {
-                    return FavoritesCard(
-                        image: Favorite.favorites[index].imageUrl,
-                        location: Favorite.favorites[index].location,
-                        name: Favorite.favorites[index].name);
-                  }),
-            )
-          ],
-        ),
+      body: BlocBuilder<FavoritesBloc, FavoritesState>(
+        builder: (context, state) {
+          if (state is FavoritesLoading) {
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Color.fromARGB(255, 0, 117, 94),
+            ));
+          }
+          if (state is FavoritesLoadingSuccessful) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+              child: ListView(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const FaIcon(
+                          FontAwesomeIcons.plane,
+                          size: 25,
+                        )),
+                  ),
+                  const PageHeadline(headline: "Favorites"),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: height / (3 / 4),
+                    width: double.infinity,
+                    child: ListView.builder(
+                        itemCount: Favorite.favorites.length,
+                        itemBuilder: (context, index) {
+                          return FavoritesCard(
+                              image: Favorite.favorites[index].imageUrl,
+                              location: Favorite.favorites[index].location,
+                              name: Favorite.favorites[index].name);
+                        }),
+                  )
+                ],
+              ),
+            );
+          }
+          return Text("");
+        },
       ),
     );
   }
