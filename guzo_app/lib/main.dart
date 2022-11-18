@@ -39,8 +39,8 @@ class GuzoPages extends StatelessWidget {
         return MaterialApp(
           home: Navigator(
             pages: [
-              const MaterialPage(child: OnBoardingPage()),
-              // const MaterialPage(child: HostPage()),
+              // const MaterialPage(child: OnBoardingPage()),
+              const MaterialPage(child: HostPage()),
               if (state is SignupRoute) MaterialPage(child: SignupPage()),
               if (state is LoginRoute) const MaterialPage(child: LoginPage()),
               if (state is OnBoardingRoute)
@@ -61,47 +61,7 @@ class GuzoPages extends StatelessWidget {
         );
       },
     );
-    // return MaterialApp.router(
-    //   routeInformationParser: _router.routeInformationParser,
-    //   routerDelegate: _router.routerDelegate,
-    //   routeInformationProvider: _router.routeInformationProvider,
-    // );
   }
-
-  // final GoRouter _router = GoRouter(
-  //     initialLocation: '/',
-  //     errorBuilder: (context, state) => ErrorScreen(error: state.error),
-  //     routes: <GoRoute>[
-  //       GoRoute(
-  //           path: '/',
-  //           builder: (BuildContext context, GoRouterState state) =>
-  //               const HostPage()),
-  //       // GoRoute(
-  //       //     path: '/',
-  //       //     builder: (BuildContext context, GoRouterState state) =>
-  //       //         const OnBoarding()),
-  //       GoRoute(
-  //           path: '/signUp_page',
-  //           builder: (BuildContext context, GoRouterState state) =>
-  //               const SignUp()),
-  //       GoRoute(
-  //           path: '/login_page',
-  //           builder: (BuildContext context, GoRouterState state) =>
-  //               const LogIn()),
-  //       GoRoute(
-  //         path: '/host_page',
-  //         builder: (BuildContext context, GoRouterState state) =>
-  //             const HostPage(),
-
-  //         // routes: [
-  //         // GoRoute(
-  //         //   path: '/sight_detail_page/:name',
-  //         //   builder: (context, state) =>
-  //         //       SightDetail(name: state.params["name"]!),
-  //         // )
-  //         // ]
-  //       ),
-  //     ]);
 }
 
 class ErrorScreen extends StatelessWidget {
