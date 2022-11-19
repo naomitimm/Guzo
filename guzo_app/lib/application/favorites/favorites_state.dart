@@ -21,3 +21,8 @@ class FavoritesLoadingFailed extends FavoritesState {
   @override
   List<Object?> get props => [error];
 }
+
+class AddedToFavorites extends FavoritesState {
+  @override
+  List<Object?> get props => [];
+}

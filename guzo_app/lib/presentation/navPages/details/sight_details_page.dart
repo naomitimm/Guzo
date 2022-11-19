@@ -64,21 +64,54 @@ class SightDetailsPage extends StatelessWidget {
                       size: 25,
                     )),
               ),
-              BlocListener<FavoritesBloc, FavoritesState>(
-                listener: (context, state) {},
-                child: Positioned(
-                  bottom: height - (height - 20),
-                  right: width - (width - 15),
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite_outline,
-                          color: Colors.white,
-                        )),
-                  ),
-                ),
+              BlocConsumer<FavoritesBloc, FavoritesState>(
+                listener: (context, state) {
+                  if (state is FavoritesLoadingSuccessful) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          backgroundColor: const Color.fromRGBO(41, 171, 135, 1)
+                              .withOpacity(0.5),
+                          content: const Text("Added to favorites")),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  // if (state is AddedToFavorites) {
+                  //   return Positioned(
+                  //     bottom: height - (height - 20),
+                  //     right: width - (width - 15),
+                  //     child: CircleAvatar(
+                  //       backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
+                  //       child: IconButton(
+                  //           onPressed: () {},
+                  //           icon: const Icon(
+                  //             Icons.favorite,
+                  //             color: Colors.white,
+                  //           )),
+                  //     ),
+                  //   );
+                  // }
+                  return Positioned(
+                    bottom: height - (height - 20),
+                    right: width - (width - 15),
+                    child: CircleAvatar(
+                      backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
+                      child: IconButton(
+                          onPressed: () {
+                            context
+                                .read<FavoritesBloc>()
+                                .add(AddToFavorites(sight: sight));
+                            context
+                                .read<FavoritesBloc>()
+                                .add(FavoritedASight());
+                          },
+                          icon: const Icon(
+                            Icons.favorite_outline,
+                            color: Colors.white,
+                          )),
+                    ),
+                  );
+                },
               )
             ],
           ),

@@ -11,6 +11,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     on<LoadFavorites>(_handleLoadFavorites);
     on<AddToFavorites>(_handleAddToFavorites);
     on<RemoveFromFavorites>(_handleRemoveFromFavorites);
+    // on<FavoritedASight>(_handleFavoritedASight);
   }
 
   void _handleLoadFavorites(LoadFavorites event, Emitter emit) async {
@@ -40,4 +41,8 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
       emit(FavoritesLoadingSuccessful(sights: sights));
     }
   }
+
+  // void _handleFavoritedASight(FavoritedASight event, Emitter emit) {
+  //   emit(AddedToFavorites());
+  // }
 }
