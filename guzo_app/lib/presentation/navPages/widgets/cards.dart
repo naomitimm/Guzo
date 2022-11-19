@@ -307,45 +307,130 @@ class FavoritesCard extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage(image), fit: BoxFit.cover)),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: double.infinity,
-                width: 140,
-                child: Stack(
-                  children: [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          name,
-                          style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        )),
-                    Positioned(
-                        top: 20,
-                        child: Text(
-                          location,
+            Stack(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                  child: SizedBox(
+                    height: double.infinity,
+                    width: 140,
+                    child: Stack(
+                      children: [
+                        Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              location,
+                              style: GoogleFonts.montserrat(
+                                textStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                name,
+                                style: GoogleFonts.montserrat(
+                                  textStyle: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.delete)))
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NoFavoritesCard extends StatelessWidget {
+  const NoFavoritesCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: BlocBuilder<FavoritesBloc, FavoritesState>(
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+            child: ListView(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const FaIcon(
+                        FontAwesomeIcons.plane,
+                        size: 25,
+                      )),
+                ),
+                const PageHeadline(headline: "Favorites"),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 300,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/favorites_page/bike.png'),
+                          fit: BoxFit.cover)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      Text("No favorites yet.",
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        )),
-                    Align(
-                        alignment: Alignment.bottomRight,
-                        child: IconButton(
-                            onPressed: () {}, icon: const Icon(Icons.delete)))
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
+                                fontWeight: FontWeight.w500),
+                          )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                          "Browse our app to pick out your favorite locations.",
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                            ),
+                          )),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      WideGreenButton(
+                          dispatcher: () {
+                            context.go('/host_page');
+                          },
+                          text: "Browse Locations")
+                    ],
+                  ),
+                )
+              ],
+            ),
+          );
+        },
       ),
     );
   }

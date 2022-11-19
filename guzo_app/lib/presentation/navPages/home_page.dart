@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: Sight.sights.length,
                   itemBuilder: ((context, index) {
                     return HomeSightCard(
                       image: Sight.sights[index].imageUrl,

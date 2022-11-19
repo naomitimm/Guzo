@@ -16,12 +16,12 @@ class Sight {
         location: "Bali"),
     Sight(
         imageUrl: 'assets/home_page/bahamas.jpg',
-        name: "Bahamas",
-        location: "The Bimini Beach"),
+        name: "The Bimini Beach",
+        location: "Bahamas"),
     Sight(
         imageUrl: 'assets/home_page/greece.jpg',
-        name: "Greece",
-        location: "Mykonos Buildings"),
+        name: "Mykonos Buildings",
+        location: "Greece"),
     Sight(
         imageUrl: 'assets/home_page/paris.jpg',
         name: "The Eiffel Tower",
