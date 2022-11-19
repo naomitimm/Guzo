@@ -275,11 +275,13 @@ class FavoritesCard extends StatelessWidget {
   final String image;
   final String name;
   final String location;
+  final void Function() dispatcher;
   const FavoritesCard(
       {Key? key,
       required this.image,
       required this.location,
-      required this.name})
+      required this.name,
+      required this.dispatcher})
       : super(key: key);
 
   @override
@@ -350,7 +352,7 @@ class FavoritesCard extends StatelessWidget {
                     right: 0,
                     bottom: 0,
                     child: IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.delete)))
+                        onPressed: dispatcher, icon: const Icon(Icons.delete)))
               ],
             )
           ],

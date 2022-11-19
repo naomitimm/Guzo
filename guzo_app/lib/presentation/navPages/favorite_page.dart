@@ -63,10 +63,30 @@ class _HasFavoritesState extends State<HasFavorites> {
                     child: ListView.builder(
                         itemCount: state.sights.length,
                         itemBuilder: (context, index) {
-                          return FavoritesCard(
+                          return BlocListener<FavoritesBloc, FavoritesState>(
+                            listener: (context, state) {
+                              if (state is FavoritesLoadingSuccessful) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      backgroundColor:
+                                          const Color.fromRGBO(41, 171, 135, 1)
+                                              .withOpacity(0.5),
+                                      content:
+                                          const Text("Removed from favorites")),
+                                );
+                              }
+                            },
+                            child: FavoritesCard(
                               image: state.sights[index].imageUrl,
                               location: state.sights[index].location,
-                              name: state.sights[index].name);
+                              name: state.sights[index].name,
+                              dispatcher: () {
+                                context.read<FavoritesBloc>().add(
+                                    RemoveFromFavorites(
+                                        sight: state.sights[index]));
+                              },
+                            ),
+                          );
                         }),
                   ),
                 ],
