@@ -70,21 +70,30 @@ class _LoginPageState extends State<LoginPage> {
             ),
             BlocConsumer<LoginBloc, LoginState>(
               listener: (context, state) {
-                navCubit.toDashboardScreen();
+                if (state is LoginSuccesful) {
+                  navCubit.toDashboardScreen();
+                }
+                if (state is LoginFailed) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.error.toString())));
+                }
               },
               builder: (context, state) {
-                return LoginButton(
-                  formKey: _formKey,
-                  dispatcher: () {
-                    final loginBloc = context.read<LoginBloc>();
-                    loginBloc.add(
-                      LoginRequested(
-                          email: _emailController.text,
-                          password: _passwordController.text),
-                    );
-                  },
-                  lable: "Log In",
-                );
+                if (state is LoginInitial) {
+                  return AuthWideGreenButton(
+                      lable: "Login",
+                      dispatcher: () {
+                        context.read<LoginBloc>().add(LoginRequested(
+                            email: _emailController.text,
+                            password: _passwordController.text));
+                      },
+                      formKey: _formKey);
+                }
+
+                if (state is LoggingIn) {
+                  return const AuthLoadingButton();
+                }
+                return Container();
               },
             ),
             Text("Or log in with",

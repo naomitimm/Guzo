@@ -76,21 +76,21 @@ class SightDetailsPage extends StatelessWidget {
                   }
                 },
                 builder: (context, state) {
-                  // if (state is AddedToFavorites) {
-                  //   return Positioned(
-                  //     bottom: height - (height - 20),
-                  //     right: width - (width - 15),
-                  //     child: CircleAvatar(
-                  //       backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
-                  //       child: IconButton(
-                  //           onPressed: () {},
-                  //           icon: const Icon(
-                  //             Icons.favorite,
-                  //             color: Colors.white,
-                  //           )),
-                  //     ),
-                  //   );
-                  // }
+                  if (state is AddedToFavorites) {
+                    return Positioned(
+                      bottom: height - (height - 20),
+                      right: width - (width - 15),
+                      child: CircleAvatar(
+                        backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.favorite,
+                              color: Colors.white,
+                            )),
+                      ),
+                    );
+                  }
                   return Positioned(
                     bottom: height - (height - 20),
                     right: width - (width - 15),

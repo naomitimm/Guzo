@@ -16,7 +16,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   void _handleLoginRequest(LoginRequested event, Emitter emit) async {
     try {
       emit(const LoggingIn());
-      await authRepository.login();
+      await Future.delayed(const Duration(seconds: 2));
       emit(const LoginSuccesful());
     } on Exception catch (error) {
       emit(LoginFailed(error: error));

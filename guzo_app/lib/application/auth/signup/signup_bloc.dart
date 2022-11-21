@@ -13,7 +13,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   void _handleSignupRequest(SignupRequested event, Emitter emit) async {
     try {
       emit(const SigningUp());
-      await authRepository.signup();
+      await Future.delayed(const Duration(seconds: 2));
       emit(const SignupSuccessful());
     } on Error catch (error) {
       emit(SignupFailed(error: error));

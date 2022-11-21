@@ -1,4 +1,3 @@
-import 'package:guzo_app/application/auth/signup/signup_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 class AuthTextField extends StatelessWidget {
@@ -118,6 +117,67 @@ class GuzoHeadline extends StatelessWidget {
               fontSize: 80,
               fontWeight: FontWeight.w800),
         ));
+  }
+}
+
+class AuthWideGreenButton extends StatelessWidget {
+  final String lable;
+  final void Function() dispatcher;
+  final GlobalKey<FormState> formKey;
+  const AuthWideGreenButton(
+      {Key? key,
+      required this.lable,
+      required this.dispatcher,
+      required this.formKey})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (formKey.currentState!.validate()) {
+          dispatcher();
+        }
+      },
+      child: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Container(
+              width: double.infinity,
+              height: 50,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color.fromARGB(255, 0, 117, 94)),
+              child: Center(
+                child: Text(lable,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    )),
+              ))),
+    );
+  }
+}
+
+class AuthLoadingButton extends StatelessWidget {
+  const AuthLoadingButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: Container(
+            width: double.infinity,
+            height: 50,
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color.fromARGB(255, 0, 117, 94)),
+            child: const Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            )));
   }
 }
 

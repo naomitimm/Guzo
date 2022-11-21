@@ -81,20 +81,30 @@ class SignupPage extends StatelessWidget {
                 ),
                 BlocConsumer<SignupBloc, SignupState>(
                   listener: (context, state) {
-                    navCubit.toDashboardScreen();
+                    if (state is SignupSuccessful) {
+                      navCubit.toDashboardScreen();
+                    }
+                    if (state is SignupFailed) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(state.error.toString())));
+                    }
                   },
                   builder: (context, state) {
-                    return SignupButton(
-                      lable: "Sign Up",
-                      formKey: _formKey,
-                      dispatcher: () {
-                        final signupBloc = context.read<SignupBloc>();
-                        signupBloc.add(SignupRequested(
-                            userName: _userNameController.text,
-                            email: _emailController.text,
-                            password: _passwordController.text));
-                      },
-                    );
+                    if (state is SignupInitial) {
+                      return AuthWideGreenButton(
+                          lable: "Signup",
+                          dispatcher: () {
+                            context.read<SignupBloc>().add(SignupRequested(
+                                userName: _userNameController.text,
+                                email: _emailController.text,
+                                password: _passwordController.text));
+                          },
+                          formKey: _formKey);
+                    }
+                    if (state is SigningUp) {
+                      return const AuthLoadingButton();
+                    }
+                    return Container();
                   },
                 ),
                 Text("Or sign up with",
