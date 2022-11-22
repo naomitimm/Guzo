@@ -327,12 +327,7 @@ class FavoritesCard extends StatelessWidget {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 location,
-                                style: GoogleFonts.montserrat(
-                                  textStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500),
-                                ),
+                                style: GuzoTheme.lightModeTextTheme.labelLarge,
                               )),
                           Padding(
                             padding: const EdgeInsets.only(top: 30),
@@ -340,12 +335,8 @@ class FavoritesCard extends StatelessWidget {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   name,
-                                  style: GoogleFonts.montserrat(
-                                    textStyle: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400),
-                                  ),
+                                  style:
+                                      GuzoTheme.lightModeTextTheme.labelMedium,
                                 )),
                           ),
                         ],
@@ -410,23 +401,13 @@ class NoFavoritesCard extends StatelessWidget {
                   child: Column(
                     children: [
                       Text("No favorites yet.",
-                          style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500),
-                          )),
+                          style: GuzoTheme.lightModeTextTheme.titleSmall),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
                           "Browse our app to pick out your favorite locations.",
-                          style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400),
-                          )),
+                          style: GuzoTheme.lightModeTextTheme.bodySmall),
                       const SizedBox(
                         height: 40,
                       ),
@@ -464,8 +445,7 @@ class ProfileInfoCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8),
           child: Text(
             text,
-            style: GoogleFonts.montserrat(
-                color: Colors.black, fontSize: 15, fontWeight: FontWeight.w400),
+            style: GuzoTheme.lightModeTextTheme.bodyMedium,
           ),
         )
       ],

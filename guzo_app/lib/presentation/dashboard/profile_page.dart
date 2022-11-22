@@ -46,17 +46,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         Text(
                           "John Doe",
-                          style: GoogleFonts.montserrat(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
+                          style: GuzoTheme.lightModeTextTheme.titleSmall,
                         ),
                         Text(
                           "@john_d",
-                          style: GoogleFonts.montserrat(
-                              color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400),
+                          style: GuzoTheme.lightModeTextTheme.labelSmall,
                         ),
                       ],
                     ),

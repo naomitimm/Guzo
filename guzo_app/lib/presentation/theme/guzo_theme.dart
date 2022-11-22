@@ -2,19 +2,19 @@ import 'package:guzo_app/presentation/exports.dart';
 
 class GuzoTheme {
   static TextTheme lightModeTextTheme = TextTheme(
-    titleLarge: GoogleFonts.dancingScript(
+    titleLarge: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Color.fromARGB(255, 0, 117, 94),
           fontSize: 80,
           fontWeight: FontWeight.w800),
     ),
-    titleMedium: GoogleFonts.dancingScript(
+    titleMedium: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Color.fromARGB(255, 0, 117, 94),
           fontSize: 80,
           fontWeight: FontWeight.w800),
     ),
-    titleSmall: GoogleFonts.dancingScript(
+    titleSmall: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),
     ),
