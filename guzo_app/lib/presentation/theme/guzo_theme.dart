@@ -18,48 +18,51 @@ class GuzoTheme {
       textStyle: const TextStyle(
           color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),
     ),
-    headline1: GoogleFonts.montserrat(
+    headlineLarge: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Colors.black, fontSize: 35, fontWeight: FontWeight.w500),
     ),
-    headline2: GoogleFonts.montserrat(
+    headlineMedium: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Colors.white, fontSize: 16, fontWeight: FontWeight.w300),
     ),
-    headline3: GoogleFonts.montserrat(
+    // link text
+    headlineSmall: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Color.fromARGB(255, 0, 117, 94),
+          fontSize: 15,
+          fontWeight: FontWeight.w700),
+    ),
+
+    displayMedium: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Color.fromARGB(255, 0, 117, 94),
           fontSize: 16,
           fontWeight: FontWeight.w300),
     ),
-    headline4: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.black, fontSize: 22, fontWeight: FontWeight.w600),
-    ),
-    headline5: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w300),
-    ),
-    headline6: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
-    ),
-    bodyText1: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-    ),
-    bodyText2: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
-    ),
-    caption: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.black, fontSize: 20, fontWeight: FontWeight.w700),
-    ),
-    bodySmall: GoogleFonts.montserrat(
-      textStyle: const TextStyle(
-          color: Colors.black, fontSize: 15, fontWeight: FontWeight.w300),
-    ),
+    // 4, 5, 6 details page
+    // headline4: GoogleFonts.montserrat(
+    //   textStyle: const TextStyle(
+    //       color: Colors.black, fontSize: 22, fontWeight: FontWeight.w600),
+    // ),
+    // headline5: GoogleFonts.montserrat(
+    //   textStyle: const TextStyle(
+    //       color: Colors.white, fontSize: 20, fontWeight: FontWeight.w300),
+    // ),
+    // headline6: GoogleFonts.montserrat(
+    //   textStyle: const TextStyle(
+    //       color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
+    // ),
+    //bd 1, 2 not needed
+    // bodyText1: GoogleFonts.montserrat(
+    //   textStyle: const TextStyle(
+    //       color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+    // ),
+    // bodyText2: GoogleFonts.montserrat(
+    //   textStyle: const TextStyle(
+    //       color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+    // ),
+
     bodyLarge: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),
@@ -67,6 +70,10 @@ class GuzoTheme {
     bodyMedium: GoogleFonts.montserrat(
       textStyle: const TextStyle(
           color: Colors.black, fontSize: 15, fontWeight: FontWeight.w400),
+    ),
+    bodySmall: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.black, fontSize: 15, fontWeight: FontWeight.w300),
     ),
     labelLarge: GoogleFonts.montserrat(
       textStyle: const TextStyle(
@@ -77,7 +84,7 @@ class GuzoTheme {
           color: Colors.black, fontSize: 16, fontWeight: FontWeight.w400),
     ),
     labelSmall: GoogleFonts.montserrat(
-        color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w400),
+        color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
   );
   static ThemeData lightMode() {
     return ThemeData(

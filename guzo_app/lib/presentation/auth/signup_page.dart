@@ -4,17 +4,13 @@ class SignupPage extends StatelessWidget {
   SignupPage({Key? key}) : super(key: key);
 
   final _userNameController = TextEditingController();
-
   final _emailController = TextEditingController();
-
   final _passwordController = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
-
     return Scaffold(
       body: Form(
         key: _formKey,
@@ -37,16 +33,11 @@ class SignupPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 40),
-            child: Text("Create your account",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
-                )),
-          ),
+          const Padding(
+              padding: EdgeInsets.only(left: 40),
+              child: GreyText(
+                text: "Create your account",
+              )),
           const SizedBox(
             height: 30,
           ),
@@ -103,13 +94,7 @@ class SignupPage extends StatelessWidget {
                     return Container();
                   },
                 ),
-                Text("Or sign up with",
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    )),
+                const GreyText(text: "Or sign up with"),
                 const SizedBox(
                   height: 10,
                 ),
@@ -127,28 +112,20 @@ class SignupPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already have an account?",
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500),
-                        )),
+                    const GreyText(text: "Already have an account?"),
                     const SizedBox(
                       width: 5,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        navCubit.toLoginScreen();
-                      },
-                      child: Text("Log In",
-                          style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 0, 117, 94),
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700),
-                          )),
-                    ),
+                        onTap: () {
+                          navCubit.toLoginScreen();
+                        },
+                        child: LinkText(
+                          text: "Login",
+                          navigator: () {
+                            navCubit.toLoginScreen();
+                          },
+                        )),
                   ],
                 ),
                 const SizedBox(

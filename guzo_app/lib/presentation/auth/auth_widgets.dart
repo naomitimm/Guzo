@@ -110,13 +110,7 @@ class GuzoHeadline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("Guzo",
-        style: GoogleFonts.dancingScript(
-          textStyle: const TextStyle(
-              color: Color.fromARGB(255, 0, 117, 94),
-              fontSize: 80,
-              fontWeight: FontWeight.w800),
-        ));
+    return Text("Guzo", style: GuzoTheme.lightModeTextTheme.titleLarge);
   }
 }
 
@@ -293,6 +287,33 @@ class SignupButton extends StatelessWidget {
               ),
             ));
       },
+    );
+  }
+}
+
+class LinkText extends StatelessWidget {
+  final String text;
+  final void Function() navigator;
+  const LinkText({Key? key, required this.text, required this.navigator})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: navigator,
+        child: Text(text, style: GuzoTheme.lightModeTextTheme.headlineSmall));
+  }
+}
+
+class GreyText extends StatelessWidget {
+  final String text;
+  const GreyText({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GuzoTheme.lightModeTextTheme.labelSmall,
     );
   }
 }

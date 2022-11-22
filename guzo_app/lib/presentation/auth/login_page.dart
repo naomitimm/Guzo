@@ -36,16 +36,9 @@ class _LoginPageState extends State<LoginPage> {
         const SizedBox(
           height: 20,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 40),
-          child: Text("Log in to your account",
-              style: GoogleFonts.montserrat(
-                textStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500),
-              )),
-        ),
+        const Padding(
+            padding: EdgeInsets.only(left: 40),
+            child: GreyText(text: "Log in to your account")),
         const SizedBox(
           height: 30,
         ),
@@ -94,13 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 return Container();
               },
             ),
-            Text("Or log in with",
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
-                )),
+            const GreyText(text: "Or log in with"),
             const SizedBox(
               height: 10,
             ),
@@ -118,13 +105,7 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account yet?",
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    )),
+                const GreyText(text: "Don't have an account yet?"),
                 const SizedBox(
                   width: 5,
                 ),
@@ -132,13 +113,12 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () {
                     navCubit.toSignupScreen();
                   },
-                  child: Text("Sign Up",
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                            color: Color.fromARGB(255, 0, 117, 94),
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700),
-                      )),
+                  child: LinkText(
+                    text: "Sign Up",
+                    navigator: () {
+                      navCubit.toSignupScreen();
+                    },
+                  ),
                 ),
               ],
             ),
