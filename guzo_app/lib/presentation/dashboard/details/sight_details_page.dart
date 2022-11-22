@@ -101,9 +101,6 @@ class SightDetailsPage extends StatelessWidget {
                             context
                                 .read<FavoritesBloc>()
                                 .add(AddToFavorites(sight: sight));
-                            // context
-                            //     .read<FavoritesBloc>()
-                            //     .add(FavoritedASight());
                           },
                           icon: const Icon(
                             Icons.favorite_outline,

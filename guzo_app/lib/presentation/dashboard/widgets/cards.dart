@@ -431,10 +431,7 @@ class NoFavoritesCard extends StatelessWidget {
                         height: 40,
                       ),
                       WideGreenButton(
-                          dispatcher: () {
-                            context.go('/host_page');
-                          },
-                          text: "Browse Locations")
+                          dispatcher: () {}, text: "Browse Locations")
                     ],
                   ),
                 )
@@ -503,7 +500,7 @@ class DetailsPersonNightCard extends StatelessWidget {
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
                         color: Color.fromRGBO(41, 171, 135, 1),
-                        fontSize: 15,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600),
                   )),
               IconButton(
@@ -530,7 +527,7 @@ class DetailsPersonNightCard extends StatelessWidget {
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600),
                   )),
               IconButton(
@@ -576,7 +573,7 @@ class BookNowCard extends StatelessWidget {
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
                         color: Colors.white,
-                        fontSize: 17,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600),
                   )),
               IconButton(

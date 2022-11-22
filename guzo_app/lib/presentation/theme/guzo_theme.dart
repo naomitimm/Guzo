@@ -1,0 +1,62 @@
+import 'package:guzo_app/presentation/exports.dart';
+
+class GuzoTheme {
+  static TextTheme lightModetextTheme = TextTheme(
+    titleLarge: GoogleFonts.dancingScript(
+      textStyle: const TextStyle(
+          color: Color.fromARGB(255, 0, 117, 94),
+          fontSize: 80,
+          fontWeight: FontWeight.w800),
+    ),
+    titleMedium: GoogleFonts.dancingScript(
+      textStyle: const TextStyle(
+          color: Color.fromARGB(255, 0, 117, 94),
+          fontSize: 80,
+          fontWeight: FontWeight.w800),
+    ),
+    titleSmall: GoogleFonts.dancingScript(
+      textStyle: const TextStyle(
+          color: Color.fromARGB(255, 0, 117, 94),
+          fontSize: 80,
+          fontWeight: FontWeight.w800),
+    ),
+    headline1: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.black, fontSize: 35, fontWeight: FontWeight.w500),
+    ),
+    bodyText1: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+    ),
+    bodyText2: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+    ),
+    caption: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.black, fontSize: 20, fontWeight: FontWeight.w700),
+    ),
+    headline6: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
+    ),
+    headline5: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w300),
+    ),
+    headline4: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.black, fontSize: 22, fontWeight: FontWeight.w600),
+    ),
+    headline3: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Color.fromARGB(255, 0, 117, 94),
+          fontSize: 15,
+          fontWeight: FontWeight.w300),
+    ),
+    headline2: GoogleFonts.montserrat(
+      textStyle: const TextStyle(
+          color: Colors.white, fontSize: 16, fontWeight: FontWeight.w300),
+    ),
+  );
+}
