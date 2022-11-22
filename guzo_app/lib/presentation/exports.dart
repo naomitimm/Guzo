@@ -5,6 +5,7 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:go_router/go_router.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 export 'package:lottie/lottie.dart';
+export 'package:guzo_app/presentation/theme/guzo_theme.dart';
 
 // auth pages
 export 'package:guzo_app/presentation/auth/login_page.dart';

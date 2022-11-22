@@ -22,9 +22,6 @@ class _HostPageState extends State<HostPage> {
         bottomNavigationBar: BottomNavigationBar(
           elevation: 40.0,
           showUnselectedLabels: false,
-          // type: BottomNavigationBarType.fixed,
-          // backgroundColor:
-          //     const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
           selectedItemColor: const Color.fromARGB(255, 0, 117, 94),
           selectedLabelStyle: GoogleFonts.montserrat(
             textStyle: const TextStyle(fontWeight: FontWeight.w700),

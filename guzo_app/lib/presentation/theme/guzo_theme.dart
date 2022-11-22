@@ -79,4 +79,23 @@ class GuzoTheme {
     labelSmall: GoogleFonts.montserrat(
         color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w400),
   );
+  static ThemeData lightMode() {
+    return ThemeData(
+        brightness: Brightness.light,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedItemColor: const Color.fromARGB(255, 0, 117, 94),
+            selectedLabelStyle: GoogleFonts.montserrat(
+              textStyle: const TextStyle(fontWeight: FontWeight.w700),
+            )));
+  }
+
+  static ThemeData darkMode() {
+    return ThemeData(
+        brightness: Brightness.dark,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedItemColor: const Color.fromARGB(255, 0, 117, 94),
+            selectedLabelStyle: GoogleFonts.montserrat(
+              textStyle: const TextStyle(fontWeight: FontWeight.w700),
+            )));
+  }
 }

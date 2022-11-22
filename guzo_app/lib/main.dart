@@ -43,7 +43,9 @@ class GuzoPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NavigationCubit, NavigationState>(
       builder: (context, state) {
+        final theme = GuzoTheme.lightMode();
         return MaterialApp(
+          theme: theme,
           home: Navigator(
             pages: [
               const MaterialPage(child: OnBoardingPage()),
