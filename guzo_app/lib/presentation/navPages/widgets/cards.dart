@@ -276,86 +276,95 @@ class FavoritesCard extends StatelessWidget {
   final String name;
   final String location;
   final void Function() dispatcher;
+  final void Function() navigator;
   const FavoritesCard(
       {Key? key,
       required this.image,
       required this.location,
       required this.name,
-      required this.dispatcher})
+      required this.dispatcher,
+      required this.navigator})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        height: 150,
-        width: double.infinity,
-        decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
-            border: Border.all(
-              color: Colors.black.withOpacity(0.2),
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        child: Row(
-          children: [
-            Container(
-              height: double.infinity,
-              width: 150,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10)),
-                  image: DecorationImage(
-                      image: AssetImage(image), fit: BoxFit.cover)),
-            ),
-            Stack(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  child: SizedBox(
-                    height: double.infinity,
-                    width: 140,
-                    child: Stack(
-                      children: [
-                        Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              location,
-                              style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30),
-                          child: Align(
+      child: GestureDetector(
+        onTap: navigator,
+        child: Container(
+          height: 150,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              // color: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
+              border: Border.all(
+                color: const Color.fromARGB(255, 0, 117, 94),
+              ),
+              borderRadius: const BorderRadius.all(Radius.circular(10))),
+          child: Row(
+            children: [
+              Container(
+                height: double.infinity,
+                width: 150,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10)),
+                    image: DecorationImage(
+                        image: AssetImage(image), fit: BoxFit.cover)),
+              ),
+              Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 15),
+                    child: SizedBox(
+                      height: double.infinity,
+                      width: 140,
+                      child: Stack(
+                        children: [
+                          Align(
                               alignment: Alignment.topLeft,
                               child: Text(
-                                name,
+                                location,
                                 style: GoogleFonts.montserrat(
                                   textStyle: const TextStyle(
                                       color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w300),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               )),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 30),
+                            child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  name,
+                                  style: GoogleFonts.montserrat(
+                                    textStyle: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                )),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: IconButton(
-                        onPressed: dispatcher, icon: const Icon(Icons.delete)))
-              ],
-            )
-          ],
+                  Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: IconButton(
+                          onPressed: dispatcher,
+                          icon: const Icon(
+                            Icons.delete,
+                            color: Color.fromARGB(255, 0, 117, 94),
+                          )))
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

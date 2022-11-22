@@ -92,8 +92,8 @@ class SightDetailsPage extends StatelessWidget {
                     );
                   }
                   return Positioned(
-                    bottom: height - (height - 20),
-                    right: width - (width - 15),
+                    bottom: 20,
+                    right: 15,
                     child: CircleAvatar(
                       backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
                       child: IconButton(
@@ -101,9 +101,9 @@ class SightDetailsPage extends StatelessWidget {
                             context
                                 .read<FavoritesBloc>()
                                 .add(AddToFavorites(sight: sight));
-                            context
-                                .read<FavoritesBloc>()
-                                .add(FavoritedASight());
+                            // context
+                            //     .read<FavoritesBloc>()
+                            //     .add(FavoritedASight());
                           },
                           icon: const Icon(
                             Icons.favorite_outline,

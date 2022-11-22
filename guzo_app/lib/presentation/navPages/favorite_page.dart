@@ -10,21 +10,7 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
-    return const HasFavorites();
-    // return const NoFavorites();
-  }
-}
-
-class HasFavorites extends StatefulWidget {
-  const HasFavorites({Key? key}) : super(key: key);
-
-  @override
-  State<HasFavorites> createState() => _HasFavoritesState();
-}
-
-class _HasFavoritesState extends State<HasFavorites> {
-  @override
-  Widget build(BuildContext context) {
+    final navCubit = context.read<NavigationCubit>();
     final size = MediaQuery.of(context).size;
     final height = size.height;
     return Scaffold(
@@ -84,6 +70,10 @@ class _HasFavoritesState extends State<HasFavorites> {
                                 context.read<FavoritesBloc>().add(
                                     RemoveFromFavorites(
                                         sight: state.sights[index]));
+                              },
+                              navigator: () {
+                                navCubit
+                                    .toSightDetailsScreen(state.sights[index]);
                               },
                             ),
                           );

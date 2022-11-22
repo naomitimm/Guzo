@@ -1,5 +1,4 @@
 import 'package:guzo_app/presentation/exports.dart';
-import 'package:guzo_app/presentation/navPages/widgets/buttons.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
