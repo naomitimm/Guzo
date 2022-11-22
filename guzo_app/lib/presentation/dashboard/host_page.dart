@@ -11,7 +11,7 @@ class _HostPageState extends State<HostPage> {
   int myIndex = 0;
   List myPages = [
     const HomePage(),
-    const SearchPage(),
+    // const SearchPage(),
     const FavoritePage(),
     const ProfilePage()
   ];
@@ -43,13 +43,13 @@ class _HostPageState extends State<HostPage> {
                   size: 25,
                 ),
                 label: "Home"),
-            BottomNavigationBarItem(
-                icon: FaIcon(
-                  FontAwesomeIcons.magnifyingGlass,
-                  color: Color.fromARGB(255, 0, 117, 94),
-                  size: 25,
-                ),
-                label: "Search"),
+            // BottomNavigationBarItem(
+            //     icon: FaIcon(
+            //       FontAwesomeIcons.magnifyingGlass,
+            //       color: Color.fromARGB(255, 0, 117, 94),
+            //       size: 25,
+            //     ),
+            //     label: "Search"),
             BottomNavigationBarItem(
               icon: FaIcon(
                 FontAwesomeIcons.solidHeart,

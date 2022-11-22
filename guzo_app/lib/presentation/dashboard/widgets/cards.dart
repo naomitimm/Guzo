@@ -413,7 +413,7 @@ class NoFavoritesCard extends StatelessWidget {
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(
                                 color: Colors.black,
-                                fontSize: 15,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w500),
                           )),
                       const SizedBox(
@@ -423,9 +423,9 @@ class NoFavoritesCard extends StatelessWidget {
                           "Browse our app to pick out your favorite locations.",
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 12,
-                            ),
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400),
                           )),
                       const SizedBox(
                         height: 40,

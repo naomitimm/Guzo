@@ -30,7 +30,7 @@ class DetailsDescription extends StatelessWidget {
     return Text(text,
         style: GoogleFonts.montserrat(
           textStyle: TextStyle(
-              color: color, fontSize: 15, fontWeight: FontWeight.w300),
+              color: color, fontSize: 15, fontWeight: FontWeight.w400),
         ));
   }
 }
