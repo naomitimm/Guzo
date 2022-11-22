@@ -12,7 +12,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 0, 117, 94).withOpacity(0.2),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         child: ListView(
@@ -22,7 +21,7 @@ class _HomePageState extends State<HomePage> {
               child: IconButton(
                   onPressed: () {},
                   icon: const FaIcon(
-                    FontAwesomeIcons.toggleOff,
+                    FontAwesomeIcons.moon,
                     size: 25,
                   )),
             ),
