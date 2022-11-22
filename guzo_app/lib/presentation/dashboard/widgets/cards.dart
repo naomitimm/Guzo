@@ -464,7 +464,8 @@ class ProfileInfoCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8),
           child: Text(
             text,
-            style: GoogleFonts.montserrat(color: Colors.black, fontSize: 15),
+            style: GoogleFonts.montserrat(
+                color: Colors.black, fontSize: 15, fontWeight: FontWeight.w400),
           ),
         )
       ],

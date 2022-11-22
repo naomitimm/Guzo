@@ -47,12 +47,16 @@ class _ProfilePageState extends State<ProfilePage> {
                         Text(
                           "John Doe",
                           style: GoogleFonts.montserrat(
-                              color: Colors.black, fontSize: 20),
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500),
                         ),
                         Text(
                           "@john_d",
                           style: GoogleFonts.montserrat(
-                              color: Colors.grey, fontSize: 15),
+                              color: Colors.grey,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
