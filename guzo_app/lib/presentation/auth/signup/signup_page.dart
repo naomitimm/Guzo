@@ -3,10 +3,6 @@ import 'package:guzo_app/presentation/exports.dart';
 class SignupPage extends StatelessWidget {
   SignupPage({Key? key}) : super(key: key);
 
-  final darktext = AppTheme.myLight();
-
-  final lightText = AppTheme.myDark();
-
   final _userNameController = TextEditingController();
 
   final _emailController = TextEditingController();

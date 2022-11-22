@@ -8,7 +8,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final darkThemeText = AppTheme.myLight();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,8 +49,7 @@ class _SplashPageState extends State<SplashPage> {
                 child: RotatedBox(
                     quarterTurns: 3,
                     child: Text("Explore Ethiopia",
-                        style: GoogleFonts.merriweatherSans(
-                            textStyle: darkThemeText.textTheme.headline1)))),
+                        style: GoogleFonts.merriweatherSans()))),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
