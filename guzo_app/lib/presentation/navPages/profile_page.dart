@@ -68,12 +68,12 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 10,
             ),
             ProfileInfoCard(
-                icon: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                text: "Add your current city"),
-            ProfileInfoCard(
                 icon: IconButton(
                     onPressed: () {}, icon: const Icon(Icons.date_range)),
                 text: "Joined in July 2022"),
+            ProfileInfoCard(
+                icon: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                text: "Add your current city"),
             ProfileInfoCard(
                 icon: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
                 text: "Write details about you"),

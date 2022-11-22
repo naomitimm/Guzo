@@ -6,6 +6,7 @@ export 'package:go_router/go_router.dart';
 export 'package:guzo_app/presentation/theme/app_theme.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 export 'package:lottie/lottie.dart';
+
 // auth pages
 export 'package:guzo_app/presentation/auth/login/login_page.dart';
 export 'package:guzo_app/presentation/auth/signup/signup_page.dart';
@@ -26,6 +27,7 @@ export 'package:guzo_app/domain/nav_pages/home_page/sight_model.dart';
 export 'package:guzo_app/domain/nav_pages/home_page/task_model.dart';
 export 'package:guzo_app/domain/nav_pages/search_page/catagory_model.dart';
 export 'package:guzo_app/domain/nav_pages/favorites_page/favorite_model.dart';
+export 'package:guzo_app/domain/user/user_model.dart';
 
 // bloc
 export 'package:guzo_app/application/auth/signup/signup_bloc.dart';
@@ -33,6 +35,7 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:guzo_app/application/auth/login/login_bloc.dart';
 export 'package:guzo_app/application/navigation/navigation_cubit.dart';
 export 'package:guzo_app/application/favorites/favorites_bloc.dart';
+export 'package:guzo_app/application/user/user_bloc.dart';
 
 // repositories
 export 'package:guzo_app/infrustructure/auth/auth_repository.dart';

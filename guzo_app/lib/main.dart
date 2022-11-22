@@ -1,4 +1,5 @@
 import 'package:guzo_app/presentation/exports.dart';
+
 void main() {
   runApp(const GuzoApp());
 }
@@ -25,7 +26,9 @@ class GuzoApp extends StatelessWidget {
                     SignupBloc(authRepository: authRepository)),
             BlocProvider(
               create: (context) => FavoritesBloc()..add(LoadFavorites()),
-              child: Container(),
+            ),
+            BlocProvider(
+              create: (context) => UserBloc(),
             )
           ],
           child: const GuzoPages(),
