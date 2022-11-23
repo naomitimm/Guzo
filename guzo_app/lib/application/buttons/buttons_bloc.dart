@@ -7,14 +7,42 @@ part 'buttons_state.dart';
 
 class ButtonsBloc extends Bloc<ButtonsEvent, ButtonsState> {
   ButtonsBloc() : super(ButtonsInitial()) {
-    on<ToggleTheButton>(_handleButtonToggle);
+    on<ToggleFavoriteButton>(_handleFavoriteButtonToggle);
+    on<ToggleThemeButton>(_handleThemeButtonToggle);
+    on<DetoggleFavoriteButton>(_handleFavoriteButtonDetoggle);
+    on<DetoggleThemeButton>(_handleThemeButtonDetoggle);
   }
 
-  void _handleButtonToggle(ToggleTheButton event, Emitter emit) {
+  void _handleFavoriteButtonToggle(ToggleFavoriteButton event, Emitter emit) {
     try {
-      emit(ButtonToggled());
+      emit(FavoriteButtonToggled());
     } on Exception catch (error) {
       emit(ButtonToggleFailed(error: error));
+    }
+  }
+
+  void _handleThemeButtonToggle(ToggleThemeButton event, Emitter emit) {
+    try {
+      emit(ThemeButtonToggled());
+    } on Exception catch (error) {
+      emit(ButtonToggleFailed(error: error));
+    }
+  }
+
+  void _handleFavoriteButtonDetoggle(
+      DetoggleFavoriteButton event, Emitter emit) {
+    try {
+      emit(FavoriteButtonDetoggled());
+    } on Exception catch (error) {
+      emit(ButtonDetoggleFailed(error: error));
+    }
+  }
+
+  void _handleThemeButtonDetoggle(DetoggleThemeButton event, Emitter emit) {
+    try {
+      emit(ThemeButtonDetoggled());
+    } on Exception catch (error) {
+      emit(ButtonDetoggleFailed(error: error));
     }
   }
 }

@@ -76,36 +76,55 @@ class SightDetailsPage extends StatelessWidget {
                   }
                 },
                 builder: (context, state) {
-                  if (state is AddedToFavorites) {
-                    return Positioned(
-                      bottom: height - (height - 20),
-                      right: width - (width - 15),
-                      child: CircleAvatar(
-                        backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.favorite,
-                              color: Colors.white,
-                            )),
-                      ),
-                    );
-                  }
                   return Positioned(
                     bottom: 20,
                     right: 15,
                     child: CircleAvatar(
                       backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
-                      child: IconButton(
-                          onPressed: () {
-                            context
-                                .read<FavoritesBloc>()
-                                .add(AddToFavorites(sight: sight));
-                          },
-                          icon: const Icon(
-                            Icons.favorite_outline,
-                            color: Colors.white,
-                          )),
+                      child: BlocBuilder<ButtonsBloc, ButtonsState>(
+                        builder: (context, state) {
+                          if (state is FavoriteButtonToggled) {
+                            return IconButton(
+                                onPressed: () {
+                                  context
+                                      .read<ButtonsBloc>()
+                                      .add(DetoggleFavoriteButton());
+                                },
+                                icon: const Icon(
+                                  Icons.favorite,
+                                  color: Colors.white,
+                                ));
+                          }
+                          if (state is FavoriteButtonDetoggled) {
+                            return IconButton(
+                                onPressed: () {
+                                  context
+                                      .read<FavoritesBloc>()
+                                      .add(AddToFavorites(sight: sight));
+                                  context
+                                      .read<ButtonsBloc>()
+                                      .add(ToggleFavoriteButton());
+                                },
+                                icon: const Icon(
+                                  Icons.favorite_outline,
+                                  color: Colors.white,
+                                ));
+                          }
+                          return IconButton(
+                              onPressed: () {
+                                context
+                                    .read<FavoritesBloc>()
+                                    .add(AddToFavorites(sight: sight));
+                                context
+                                    .read<ButtonsBloc>()
+                                    .add(ToggleFavoriteButton());
+                              },
+                              icon: const Icon(
+                                Icons.favorite_outline,
+                                color: Colors.white,
+                              ));
+                        },
+                      ),
                     ),
                   );
                 },

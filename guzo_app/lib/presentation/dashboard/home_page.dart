@@ -18,12 +18,48 @@ class _HomePageState extends State<HomePage> {
           children: [
             Align(
               alignment: Alignment.topRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.moon,
-                    size: 25,
-                  )),
+              child: BlocConsumer<ButtonsBloc, ButtonsState>(
+                listener: (context, state) {
+                  if (state is ButtonToggleFailed) {
+                    Text(state.error.toString());
+                  }
+                  if (state is ButtonDetoggleFailed) {
+                    Text(state.error.toString());
+                  }
+                },
+                builder: (context, state) {
+                  if (state is ThemeButtonToggled) {
+                    return IconButton(
+                        onPressed: () {
+                          context
+                              .read<ButtonsBloc>()
+                              .add(DetoggleThemeButton());
+                        },
+                        icon: const FaIcon(
+                          FontAwesomeIcons.sun,
+                          size: 25,
+                        ));
+                  }
+                  if (state is ThemeButtonDetoggled) {
+                    return IconButton(
+                        onPressed: () {
+                          context.read<ButtonsBloc>().add(ToggleThemeButton());
+                        },
+                        icon: const FaIcon(
+                          FontAwesomeIcons.moon,
+                          size: 25,
+                        ));
+                  }
+                  return IconButton(
+                      onPressed: () {
+                        context.read<ButtonsBloc>().add(ToggleThemeButton());
+                      },
+                      icon: const FaIcon(
+                        FontAwesomeIcons.moon,
+                        size: 25,
+                      ));
+                },
+              ),
             ),
             const PageHeadline(headline: "Discover"),
             const SizedBox(

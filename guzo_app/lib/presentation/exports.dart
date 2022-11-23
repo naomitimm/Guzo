@@ -36,6 +36,7 @@ export 'package:guzo_app/application/auth/login/login_bloc.dart';
 export 'package:guzo_app/application/navigation/navigation_cubit.dart';
 export 'package:guzo_app/application/favorites/favorites_bloc.dart';
 export 'package:guzo_app/application/user/user_bloc.dart';
+export 'package:guzo_app/application/buttons/buttons_bloc.dart';
 
 // repositories
 export 'package:guzo_app/infrustructure/auth/auth_repository.dart';

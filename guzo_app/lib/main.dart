@@ -1,3 +1,4 @@
+import 'package:guzo_app/application/buttons/buttons_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
@@ -29,6 +30,9 @@ class GuzoApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => UserBloc(),
+            ),
+            BlocProvider(
+              create: (context) => ButtonsBloc(),
             )
           ],
           child: const GuzoPages(),
