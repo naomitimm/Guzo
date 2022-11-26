@@ -24,8 +24,3 @@ class RemoveFromFavorites extends FavoritesEvent {
   @override
   List<Object?> get props => [sight];
 }
-
-class FavoritedASight extends FavoritesEvent {
-  @override
-  List<Object?> get props => [];
-}

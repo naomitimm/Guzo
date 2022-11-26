@@ -133,7 +133,7 @@ class SightDetailsPage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
