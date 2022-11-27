@@ -16,7 +16,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   void _handleUserHandleUpdate(UpdateUserHandle event, Emitter emit) {
     try {
       emit(UserUpdating());
-      final userhandle = event.user.userHandle;
+      final userhandle = event.userHandle;
       emit(UserHandleUpdated(userHandle: userhandle));
     } on Exception catch (error) {
       emit(UserUpdateFailed(error: error));
@@ -26,7 +26,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   void _handleUserNameUpdate(UpdateUserName event, Emitter emit) {
     try {
       emit(UserUpdating());
-      final userName = event.user.userName;
+      final userName = event.userName;
       emit(UserNameUpdated(userName: userName));
     } on Exception catch (error) {
       emit(UserUpdateFailed(error: error));
@@ -36,7 +36,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   void _handleUserBioUpdate(UpdateUserBio event, Emitter emit) {
     try {
       emit(UserUpdating());
-      final userBio = event.user.userBio;
+      final userBio = event.userBio;
       emit(UserBioUpdated(userBio: userBio));
     } on Exception catch (error) {
       emit(UserUpdateFailed(error: error));
@@ -46,7 +46,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   void _handleUserCityUpdate(UpdateUserCity event, Emitter emit) {
     try {
       emit(UserUpdating());
-      final userCity = event.user.userCity;
+      final userCity = event.city;
       emit(UserCityUpdated(userCity: userCity));
     } on Exception catch (error) {
       emit(UserUpdateFailed(error: error));

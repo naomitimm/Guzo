@@ -35,7 +35,7 @@ class UserBioUpdated extends UserState {
 }
 
 class UserCityUpdated extends UserState {
-  final String userCity;
+  late final String userCity;
   UserCityUpdated({required this.userCity});
   @override
   List<Object?> get props => [];

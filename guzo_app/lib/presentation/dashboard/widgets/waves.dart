@@ -20,6 +20,13 @@ class WaveSmall extends StatelessWidget {
           clipper: AuthClipper(),
           child: Container(
             color: const Color.fromRGBO(0, 117, 94, 1),
+            height: 90,
+          ),
+        ),
+        ClipPath(
+          clipper: AuthClipper(),
+          child: Container(
+            color: Colors.white,
             height: 80,
           ),
         ),

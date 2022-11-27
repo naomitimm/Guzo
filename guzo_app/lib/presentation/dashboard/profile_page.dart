@@ -76,24 +76,99 @@ class _ProfilePageState extends State<ProfilePage> {
                   text: "Joined in July 2022",
                   dispatcher: () {},
                 ),
-                ProfileInfoCard(
-                    icon: IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.add)),
-                    text: "Add your current city",
-                    dispatcher: () {
-                      showBottomSheet(
-                          context: context,
-                          builder: ((context) => BuildBottomSheet(
-                                text: "Add your current city",
-                                controller: cityController,
-                                hintText: '',
-                              )));
-                    }),
-                ProfileInfoCard(
-                    icon: IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.add)),
-                    text: "Write details about you",
-                    dispatcher: () {}),
+                BlocConsumer<UserBloc, UserState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    if (state is UserInitial) {
+                      return Column(
+                        children: [
+                          ProfileInfoCard(
+                              icon: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.add)),
+                              text: "Add your current city",
+                              dispatcher: () {
+                                showBottomSheet(
+                                    context: context,
+                                    builder: ((context) => BuildBottomSheet(
+                                          text: "Add your current city",
+                                          controller: cityController,
+                                          submit: (() {
+                                            Navigator.of(context).pop();
+                                            context.read<UserBloc>().add(
+                                                UpdateUserCity(
+                                                    city: cityController.text));
+                                          }),
+                                        )));
+                              }),
+                          ProfileInfoCard(
+                              icon: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.add)),
+                              text: "Write details about you",
+                              dispatcher: () {
+                                showBottomSheet(
+                                    context: context,
+                                    builder: ((context) => BuildBottomSheet(
+                                          text: "Write your bio",
+                                          controller: bioController,
+                                          submit: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        )));
+                              }),
+                        ],
+                      );
+                    }
+                    if (state is UserCityUpdated) {
+                      Column(
+                        children: [
+                          Text(cityController.text),
+                          ProfileInfoCard(
+                              icon: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.add)),
+                              text: "Write details about you",
+                              dispatcher: () {
+                                showBottomSheet(
+                                    context: context,
+                                    builder: ((context) => BuildBottomSheet(
+                                          text: "Write your bio",
+                                          controller: bioController,
+                                          submit: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        )));
+                              }),
+                        ],
+                      );
+                    }
+                    if (state is UserBioUpdated) {
+                      return Column(
+                        children: [
+                          ProfileInfoCard(
+                              icon: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.add)),
+                              text: "Add your current city",
+                              dispatcher: () {
+                                showBottomSheet(
+                                    context: context,
+                                    builder: ((context) => BuildBottomSheet(
+                                          text: "Add your current city",
+                                          controller: cityController,
+                                          submit: (() {
+                                            Navigator.of(context).pop();
+                                          }),
+                                        )));
+                              }),
+                          Text(bioController.text)
+                        ],
+                      );
+                    }
+                    return Container();
+                  },
+                ),
               ],
             ),
           );

@@ -598,12 +598,13 @@ class BookNowCard extends StatelessWidget {
 class BuildBottomSheet extends StatelessWidget {
   final String text;
   final TextEditingController controller;
-  final String hintText;
+  final void Function() submit;
+
   const BuildBottomSheet(
       {Key? key,
       required this.text,
       required this.controller,
-      required this.hintText})
+      required this.submit})
       : super(key: key);
 
   @override
@@ -623,7 +624,7 @@ class BuildBottomSheet extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: UserTextField(controller: controller, hintText: hintText),
+          child: UserTextField(controller: controller),
         ),
         const SizedBox(
           height: 10,
@@ -636,13 +637,16 @@ class BuildBottomSheet extends StatelessWidget {
                     color: Color.fromARGB(255, 0, 117, 94),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Center(
-                  child: Text("Done",
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      )),
+                  child: GestureDetector(
+                    onTap: submit,
+                    child: Text("Done",
+                        style: GoogleFonts.montserrat(
+                          textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500),
+                        )),
+                  ),
                 )))
       ]),
     );

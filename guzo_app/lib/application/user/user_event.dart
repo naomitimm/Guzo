@@ -4,29 +4,29 @@ part of 'user_bloc.dart';
 abstract class UserEvent extends Equatable {}
 
 class UpdateUserHandle extends UserEvent {
-  final User user;
-  UpdateUserHandle({required this.user});
+  final String userHandle;
+  UpdateUserHandle({required this.userHandle});
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [userHandle];
 }
 
 class UpdateUserName extends UserEvent {
-  final User user;
-  UpdateUserName({required this.user});
+  final String userName;
+  UpdateUserName({required this.userName});
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [userName];
 }
 
 class UpdateUserBio extends UserEvent {
-  final User user;
-  UpdateUserBio({required this.user});
+  final String userBio;
+  UpdateUserBio({required this.userBio});
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [userBio];
 }
 
 class UpdateUserCity extends UserEvent {
-  final User user;
-  UpdateUserCity({required this.user});
+  final String city;
+  UpdateUserCity({required this.city});
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [city];
 }
