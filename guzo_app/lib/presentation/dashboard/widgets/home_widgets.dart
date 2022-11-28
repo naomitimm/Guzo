@@ -92,33 +92,34 @@ class HomeTaskCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: Container(
-        height: size.height / 7,
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: const Color.fromARGB(255, 0, 117, 94),
-            ),
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0, right: 10),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Text(task,
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700),
-                    )),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: Container(
+          height: size.height / 6,
+          width: size.width / 2,
+          decoration: BoxDecoration(
+              border: Border.all(
+                color: const Color.fromARGB(255, 0, 117, 94),
               ),
-            )
-          ],
-        ),
-      ),
-    );
+              image:
+                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+              borderRadius: const BorderRadius.all(Radius.circular(10))),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0, right: 10),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Text(task,
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      )),
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }

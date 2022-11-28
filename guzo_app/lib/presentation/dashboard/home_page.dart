@@ -88,10 +88,10 @@ class _HomePageState extends State<HomePage> {
               height: 30,
             ),
             SizedBox(
-              height: height / (5.5 / 4),
+              height: size.height / 6,
               width: double.infinity,
               child: ListView.builder(
-                  scrollDirection: Axis.vertical,
+                  scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: ((context, index) {
                     return HomeTaskCard(
