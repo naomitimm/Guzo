@@ -1,3 +1,4 @@
+import 'package:guzo_app/application/auth/logout/logout_bloc.dart';
 import 'package:guzo_app/presentation/dashboard/widgets/alert_dialogue.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
@@ -22,16 +23,34 @@ class _ProfilePageState extends State<ProfilePage> {
             child: ListView(children: [
               Align(
                 alignment: Alignment.topRight,
-                child: IconButton(
-                    onPressed: () async {
-                      await AlertDialogue.logoutDialogue(
-                          context,
-                          "Logout",
-                          "Are you sure you want to log out of john_d?",
-                          (() => navCubit.toLoginScreen()));
-                    },
-                    icon: const Icon(Icons.settings),
-                    iconSize: 25),
+                child: BlocConsumer<LogoutBloc, LogoutState>(
+                  listener: (context, state) {
+                    if (state is LogoutSuccessful) {
+                      navCubit.toLoginScreen();
+                      Navigator.of(context).pop(DialogueAction.yes);
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is Loggingout) {
+                      return const CircularProgressIndicator(
+                        color: Color.fromRGBO(0, 117, 94, 1),
+                      );
+                    }
+                    if (state is Logoutfailed) {
+                      return Text(state.error.toString());
+                    }
+                    return IconButton(
+                        onPressed: () async {
+                          await AlertDialogue.logoutDialogue(context, "Logout",
+                              "Are you sure you want to log out of john_d?",
+                              (() {
+                            context.read<LogoutBloc>().add(LogoutRequested());
+                          }));
+                        },
+                        icon: const Icon(Icons.settings),
+                        iconSize: 25);
+                  },
+                ),
               ),
               const PageHeadline(headline: "Profile"),
               const SizedBox(

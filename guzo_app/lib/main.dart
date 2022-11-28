@@ -1,3 +1,4 @@
+import 'package:guzo_app/application/auth/logout/logout_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
@@ -32,6 +33,9 @@ class GuzoApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => ButtonsBloc(),
+            ),
+            BlocProvider(
+              create: (context) => LogoutBloc(),
             )
           ],
           child: const GuzoPages(),
