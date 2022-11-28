@@ -12,6 +12,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -46,23 +47,26 @@ class _SearchPageState extends State<SearchPage> {
           const SizedBox(
             height: 20,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 100,
-                width: double.infinity,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: Catagory.catagories.length,
-                    itemBuilder: (context, index) {
-                      return SearchCatagoryComponentCrd(
-                          image: Catagory.catagories[index].image,
-                          title: Catagory.catagories[index].name);
-                    }),
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: size.width / 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: double.infinity,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: Catagory.catagories.length,
+                      itemBuilder: (context, index) {
+                        return SearchCatagoryComponentCrd(
+                            image: Catagory.catagories[index].image,
+                            title: Catagory.catagories[index].name);
+                      }),
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             height: 20,

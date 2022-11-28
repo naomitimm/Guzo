@@ -7,153 +7,164 @@ class SightDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final height = size.height;
-    final width = size.width;
+
     final navCubit = context.read<NavigationCubit>();
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ListView(children: [
-        Container(
-          height: height / 2,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(sight.imageUrl), fit: BoxFit.cover)),
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                height: height / 2,
-                width: double.infinity,
-                decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Container(
+              height: size.height / 2,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(sight.imageUrl), fit: BoxFit.cover)),
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    height: size.height / 2,
+                    width: double.infinity,
+                    decoration:
+                        BoxDecoration(color: Colors.black.withOpacity(0.4)),
+                  ),
+                  Positioned(
+                    child: Container(
+                      height: size.height / 17,
+                      width: double.infinity,
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              topRight: Radius.circular(25))),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: size.height / 15,
+                    left: size.width / 20,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        DetailsHeadline(color: Colors.white, text: sight.name),
+                        DetailsMiniHeadline(
+                            color: Colors.white, text: sight.location)
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    top: size.height / 90,
+                    left: size.width / 90,
+                    child: IconButton(
+                        onPressed: () {
+                          navCubit.toDashboardScreen();
+                        },
+                        icon: const FaIcon(
+                          FontAwesomeIcons.chevronLeft,
+                          color: Colors.white,
+                          size: 25,
+                        )),
+                  ),
+                  BlocConsumer<FavoritesBloc, FavoritesState>(
+                    listener: (context, state) {
+                      if (state is FavoritesLoadingSuccessful) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              backgroundColor:
+                                  const Color.fromRGBO(41, 171, 135, 1)
+                                      .withOpacity(0.5),
+                              content: const Text("Added to favorites")),
+                        );
+                      }
+                    },
+                    builder: (context, state) {
+                      return Positioned(
+                        bottom: size.height / 28,
+                        right: size.width / 25,
+                        child: CircleAvatar(
+                          backgroundColor:
+                              const Color.fromRGBO(41, 171, 135, 1),
+                          child: BlocBuilder<ButtonsBloc, ButtonsState>(
+                            builder: (context, state) {
+                              if (state is FavoriteButtonToggled) {
+                                return IconButton(
+                                    onPressed: () {
+                                      context
+                                          .read<ButtonsBloc>()
+                                          .add(DetoggleFavoriteButton());
+                                    },
+                                    icon: const Icon(
+                                      Icons.favorite,
+                                      color: Colors.white,
+                                    ));
+                              }
+                              if (state is FavoriteButtonDetoggled) {
+                                return IconButton(
+                                    onPressed: () {
+                                      context
+                                          .read<FavoritesBloc>()
+                                          .add(AddToFavorites(sight: sight));
+                                      context
+                                          .read<ButtonsBloc>()
+                                          .add(ToggleFavoriteButton());
+                                    },
+                                    icon: const Icon(
+                                      Icons.favorite_outline,
+                                      color: Colors.white,
+                                    ));
+                              }
+                              return IconButton(
+                                  onPressed: () {
+                                    context
+                                        .read<FavoritesBloc>()
+                                        .add(AddToFavorites(sight: sight));
+                                    context
+                                        .read<ButtonsBloc>()
+                                        .add(ToggleFavoriteButton());
+                                  },
+                                  icon: const Icon(
+                                    Icons.favorite_outline,
+                                    color: Colors.white,
+                                  ));
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  )
+                ],
               ),
-              Positioned(
-                child: Container(
-                  height: height / 17,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25))),
-                ),
-              ),
-              Positioned(
-                bottom: height - (height - 50),
-                left: width - (width - 15),
+            ),
+            SizedBox(
+              height: size.height / 1,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DetailsHeadline(color: Colors.white, text: sight.name),
-                    DetailsMiniHeadline(
-                        color: Colors.white, text: sight.location)
+                    const DescriptionHeadline(
+                        color: Colors.black, text: "Description"),
+                    const DetailsDescription(
+                        color: Colors.black,
+                        text:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+                    SizedBox(
+                      height: size.height / 35,
+                    ),
+                    const DetailsPersonNightCard(),
+                    SizedBox(
+                      height: size.height / 25,
+                    ),
+                    const BookNowCard()
                   ],
                 ),
               ),
-              Positioned(
-                top: 5,
-                left: 5,
-                child: IconButton(
-                    onPressed: () {
-                      navCubit.toDashboardScreen();
-                    },
-                    icon: const FaIcon(
-                      FontAwesomeIcons.chevronLeft,
-                      color: Colors.white,
-                      size: 25,
-                    )),
-              ),
-              BlocConsumer<FavoritesBloc, FavoritesState>(
-                listener: (context, state) {
-                  if (state is FavoritesLoadingSuccessful) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                          backgroundColor: const Color.fromRGBO(41, 171, 135, 1)
-                              .withOpacity(0.5),
-                          content: const Text("Added to favorites")),
-                    );
-                  }
-                },
-                builder: (context, state) {
-                  return Positioned(
-                    bottom: 20,
-                    right: 15,
-                    child: CircleAvatar(
-                      backgroundColor: const Color.fromRGBO(41, 171, 135, 1),
-                      child: BlocBuilder<ButtonsBloc, ButtonsState>(
-                        builder: (context, state) {
-                          if (state is FavoriteButtonToggled) {
-                            return IconButton(
-                                onPressed: () {
-                                  context
-                                      .read<ButtonsBloc>()
-                                      .add(DetoggleFavoriteButton());
-                                },
-                                icon: const Icon(
-                                  Icons.favorite,
-                                  color: Colors.white,
-                                ));
-                          }
-                          if (state is FavoriteButtonDetoggled) {
-                            return IconButton(
-                                onPressed: () {
-                                  context
-                                      .read<FavoritesBloc>()
-                                      .add(AddToFavorites(sight: sight));
-                                  context
-                                      .read<ButtonsBloc>()
-                                      .add(ToggleFavoriteButton());
-                                },
-                                icon: const Icon(
-                                  Icons.favorite_outline,
-                                  color: Colors.white,
-                                ));
-                          }
-                          return IconButton(
-                              onPressed: () {
-                                context
-                                    .read<FavoritesBloc>()
-                                    .add(AddToFavorites(sight: sight));
-                                context
-                                    .read<ButtonsBloc>()
-                                    .add(ToggleFavoriteButton());
-                              },
-                              icon: const Icon(
-                                Icons.favorite_outline,
-                                color: Colors.white,
-                              ));
-                        },
-                      ),
-                    ),
-                  );
-                },
-              )
-            ],
-          ),
+            ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              DescriptionHeadline(color: Colors.black, text: "Description"),
-              DetailsDescription(
-                  color: Colors.black,
-                  text:
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-              SizedBox(
-                height: 25,
-              ),
-              DetailsPersonNightCard(),
-              SizedBox(
-                height: 40,
-              ),
-              BookNowCard()
-            ],
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }

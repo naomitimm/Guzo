@@ -23,11 +23,14 @@ class DetailsDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,
-        style: GoogleFonts.montserrat(
-          textStyle: TextStyle(
-              color: color, fontSize: 15, fontWeight: FontWeight.w400),
-        ));
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      child: Text(text,
+          style: GoogleFonts.montserrat(
+            textStyle: const TextStyle(
+                color: Colors.black, fontSize: 17, fontWeight: FontWeight.w300),
+          )),
+    );
   }
 }
 

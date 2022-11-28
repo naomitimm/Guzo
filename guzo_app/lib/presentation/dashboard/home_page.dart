@@ -11,6 +11,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -66,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               height: 20,
             ),
             SizedBox(
-              height: 250,
+              height: height / 3.7,
               width: double.infinity,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -83,13 +85,13 @@ class _HomePageState extends State<HomePage> {
                   })),
             ),
             const SizedBox(
-              height: 60,
+              height: 30,
             ),
             SizedBox(
-              height: 100,
+              height: height / (5.5 / 4),
               width: double.infinity,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   itemCount: 3,
                   itemBuilder: ((context, index) {
                     return HomeTaskCard(
