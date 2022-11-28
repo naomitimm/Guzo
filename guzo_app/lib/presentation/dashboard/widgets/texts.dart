@@ -99,19 +99,19 @@ class SliderLabel extends StatelessWidget {
 }
 
 class UserTextField extends StatelessWidget {
-  const UserTextField({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
   final TextEditingController controller;
+  final String hintText;
+  const UserTextField(
+      {Key? key, required this.controller, required this.hintText})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
+      decoration: InputDecoration(
+        hintText: hintText,
+        border: const OutlineInputBorder(),
       ),
     );
   }

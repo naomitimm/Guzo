@@ -37,59 +37,117 @@ class ProfileInfoCard extends StatelessWidget {
 }
 
 class BuildBottomSheet extends StatelessWidget {
-  final String text;
-  final TextEditingController controller;
+  final TextEditingController userNameController;
+  final TextEditingController userHandleController;
+  final TextEditingController userCityController;
+  final TextEditingController userBioController;
   final void Function() submit;
 
   const BuildBottomSheet(
       {Key? key,
-      required this.text,
-      required this.controller,
+      required this.userNameController,
+      required this.userHandleController,
+      required this.userCityController,
+      required this.userBioController,
       required this.submit})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height / 2.3,
-      width: size.width,
-      child: ListView(children: [
-        const WaveSmall(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            text,
-            style: GuzoTheme.lightModeTextTheme.bodySmall,
+    return SafeArea(
+      child: SizedBox(
+        height: size.height / 1.17,
+        width: size.width,
+        child: ListView(children: [
+          const WaveSmall(),
+          SizedBox(
+            height: size.height / 30,
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: UserTextField(controller: controller),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Center(
-            child: Container(
-                height: 40,
-                width: 100,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 0, 117, 94),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Center(
-                  child: GestureDetector(
-                    onTap: submit,
-                    child: Text("Done",
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
-                        )),
-                  ),
-                )))
-      ]),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "User Name",
+                  style: GuzoTheme.lightModeTextTheme.bodySmall,
+                ),
+                SizedBox(
+                  height: size.height / 90,
+                ),
+                UserTextField(
+                  controller: userNameController,
+                  hintText: '',
+                ),
+                SizedBox(
+                  height: size.height / 30,
+                ),
+                Text(
+                  "User Handle",
+                  style: GuzoTheme.lightModeTextTheme.bodySmall,
+                ),
+                SizedBox(
+                  height: size.height / 90,
+                ),
+                UserTextField(
+                  controller: userNameController,
+                  hintText: '',
+                ),
+                SizedBox(
+                  height: size.height / 30,
+                ),
+                Text(
+                  "User City",
+                  style: GuzoTheme.lightModeTextTheme.bodySmall,
+                ),
+                SizedBox(
+                  height: size.height / 90,
+                ),
+                UserTextField(
+                  controller: userNameController,
+                  hintText: '',
+                ),
+                SizedBox(
+                  height: size.height / 30,
+                ),
+                Text(
+                  "User Bio",
+                  style: GuzoTheme.lightModeTextTheme.bodySmall,
+                ),
+                SizedBox(
+                  height: size.height / 90,
+                ),
+                UserTextField(
+                  controller: userNameController,
+                  hintText: '',
+                ),
+                SizedBox(
+                  height: size.height / 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: WideGreenButton(dispatcher: submit, text: "Save"),
+                )
+              ],
+            ),
+          )
+        ]),
+      ),
+    );
+  }
+}
+
+class LogoutBottomSheet extends StatelessWidget {
+  const LogoutBottomSheet({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Container(
+      color: Colors.amber,
+      height: size.height / 15,
     );
   }
 }

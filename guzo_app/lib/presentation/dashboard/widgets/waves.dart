@@ -7,29 +7,45 @@ class WaveSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Stack(
       children: [
         ClipPath(
           clipper: AuthClipper(),
           child: Container(
             color: const Color.fromRGBO(41, 171, 135, 1),
-            height: 100,
+            height: size.height / 8,
           ),
         ),
         ClipPath(
           clipper: AuthClipper(),
           child: Container(
             color: const Color.fromRGBO(0, 117, 94, 1),
-            height: 90,
+            height: size.height / 10,
           ),
         ),
-        ClipPath(
-          clipper: AuthClipper(),
-          child: Container(
-            color: Colors.white,
-            height: 80,
+        // ClipPath(
+        //   clipper: AuthClipper(),
+        //   child: Container(
+        //     color: Colors.white,
+        //     height: 80,
+        //   ),
+        // ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const FaIcon(
+                  FontAwesomeIcons.chevronLeft,
+                  color: Colors.white,
+                  size: 30,
+                )),
           ),
-        ),
+        )
       ],
     );
   }
