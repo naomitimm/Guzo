@@ -50,14 +50,12 @@ class SearchRecommendedCard extends StatelessWidget {
   final String image;
   final String name;
   final String location;
-  final String title;
   final void Function() dispatcher;
   const SearchRecommendedCard(
       {Key? key,
       required this.image,
       required this.location,
       required this.name,
-      required this.title,
       required this.dispatcher})
       : super(key: key);
 
@@ -66,18 +64,6 @@ class SearchRecommendedCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: Text(
-            title,
-            style: GoogleFonts.montserrat(
-              textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
         GestureDetector(
           onTap: dispatcher,
           child: Stack(
@@ -145,6 +131,25 @@ class SearchRecommendedCard extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class SearchSightTitle extends StatelessWidget {
+  final String text;
+  const SearchSightTitle({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+      child: Text(
+        text,
+        style: GoogleFonts.montserrat(
+          textStyle: const TextStyle(
+              color: Colors.black, fontSize: 22, fontWeight: FontWeight.w500),
+        ),
+      ),
     );
   }
 }

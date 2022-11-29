@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
     final size = MediaQuery.of(context).size;
-    final height = size.height;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               height: 20,
             ),
             SizedBox(
-              height: height / 3.7,
+              height: size.height / 2.5,
               width: double.infinity,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,

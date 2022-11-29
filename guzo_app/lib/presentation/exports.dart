@@ -19,6 +19,7 @@ export 'package:guzo_app/presentation/dashboard/favorite_page.dart';
 export 'package:guzo_app/presentation/dashboard/profile_page.dart';
 export 'package:guzo_app/presentation/dashboard/search_page.dart';
 export 'package:guzo_app/presentation/dashboard/details/sight_details_page.dart';
+export 'package:guzo_app/presentation/dashboard/details/explore_sight_details_page.dart';
 
 // models
 export '../domain/dashboard/search_page/explore_sights_model.dart';
@@ -36,6 +37,7 @@ export 'package:guzo_app/application/navigation/navigation_cubit.dart';
 export 'package:guzo_app/application/favorites/favorites_bloc.dart';
 export 'package:guzo_app/application/user/user_bloc.dart';
 export 'package:guzo_app/application/buttons/buttons_bloc.dart';
+export 'package:guzo_app/application/auth/logout/logout_bloc.dart';
 
 // repositories
 export 'package:guzo_app/infrustructure/auth/auth_repository.dart';

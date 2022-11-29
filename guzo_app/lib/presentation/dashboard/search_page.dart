@@ -71,6 +71,7 @@ class _SearchPageState extends State<SearchPage> {
           const SizedBox(
             height: 20,
           ),
+          const SearchSightTitle(text: "Historical Sights"),
           SizedBox(
             height: 200,
             width: double.infinity,
@@ -82,13 +83,13 @@ class _SearchPageState extends State<SearchPage> {
                       image: Sight.historicalSites[index].imageUrl,
                       location: Sight.historicalSites[index].name,
                       name: Sight.historicalSites[index].location,
-                      title: "Historical Sites",
                       dispatcher: () {
-                        navCubit
-                            .toSightDetailsScreen(Sight.historicalSites[index]);
+                        navCubit.toExploreSightDetailsScreen(
+                            Sight.historicalSites[index]);
                       });
                 })),
           ),
+          const SearchSightTitle(text: "Desserts"),
           SizedBox(
             height: 200,
             width: double.infinity,
@@ -97,17 +98,17 @@ class _SearchPageState extends State<SearchPage> {
                 itemCount: 3,
                 itemBuilder: ((context, index) {
                   return SearchRecommendedCard(
-                    image: ExploreSight.deserts[index].imageUrl,
-                    location: ExploreSight.deserts[index].name,
-                    name: ExploreSight.deserts[index].location,
-                    title: "Desserts",
+                    image: Sight.deserts[index].imageUrl,
+                    location: Sight.deserts[index].name,
+                    name: Sight.deserts[index].location,
                     dispatcher: () {
-                      navCubit.toExploreSightDetailsScreen(
-                          ExploreSight.deserts[index]);
+                      navCubit
+                          .toExploreSightDetailsScreen(Sight.deserts[index]);
                     },
                   );
                 })),
           ),
+          const SearchSightTitle(text: "Mountains"),
           SizedBox(
             height: 200,
             width: double.infinity,
@@ -116,13 +117,12 @@ class _SearchPageState extends State<SearchPage> {
                 itemCount: 3,
                 itemBuilder: ((context, index) {
                   return SearchRecommendedCard(
-                      image: ExploreSight.mountains[index].imageUrl,
-                      location: ExploreSight.mountains[index].name,
-                      name: ExploreSight.mountains[index].location,
-                      title: "Mountains",
+                      image: Sight.mountains[index].imageUrl,
+                      location: Sight.mountains[index].name,
+                      name: Sight.mountains[index].location,
                       dispatcher: () {
                         navCubit.toExploreSightDetailsScreen(
-                            ExploreSight.mountains[index]);
+                            Sight.mountains[index]);
                       });
                 })),
           ),

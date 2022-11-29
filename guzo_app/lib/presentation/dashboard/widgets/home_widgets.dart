@@ -15,6 +15,7 @@ class HomeSightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: dispatcher,
       child: Stack(
@@ -22,8 +23,8 @@ class HomeSightCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Container(
-              height: 250,
-              width: 250,
+              height: size.height / 2.8,
+              width: size.width / 1.5,
               decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
@@ -37,14 +38,14 @@ class HomeSightCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Container(
-              height: 250,
-              width: 250,
+              height: size.height / 2.8,
+              width: size.width / 1.5,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.2),
                   borderRadius: const BorderRadius.all(Radius.circular(30))),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+                padding: EdgeInsets.symmetric(
+                    horizontal: size.width / 20, vertical: size.height / 50),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,

@@ -1,4 +1,3 @@
-import 'package:guzo_app/application/auth/logout/logout_bloc.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
 void main() {
@@ -65,7 +64,11 @@ class GuzoPages extends StatelessWidget {
                 const MaterialPage(child: HostPage()),
               if (state is SightDetailsRoute)
                 MaterialPage(child: SightDetailsPage(sight: state.sight)),
-
+              if (state is ExploreSightDetailsRoute)
+                MaterialPage(
+                    child: ExploreSightDetailsPage(
+                  sight: state.sight,
+                )),
               if (state is SearchRoute) const MaterialPage(child: SearchPage())
             ],
             onPopPage: (route, result) => route.didPop(result),

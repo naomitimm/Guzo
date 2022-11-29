@@ -22,8 +22,8 @@ class SightDetailsRoute extends NavigationState {
 }
 
 class ExploreSightDetailsRoute extends NavigationState {
-  final ExploreSight exploreSight;
-  ExploreSightDetailsRoute({required this.exploreSight});
+  final Sight sight;
+  ExploreSightDetailsRoute({required this.sight});
 }
 
 class SearchRoute extends NavigationState {}
