@@ -54,8 +54,8 @@ class GuzoPages extends StatelessWidget {
           theme: theme,
           home: Navigator(
             pages: [
-              // const MaterialPage(child: OnBoardingPage()),
-              const MaterialPage(child: HostPage()),
+              const MaterialPage(child: OnBoardingPage()),
+              // const MaterialPage(child: HostPage()),
               if (state is SignupRoute) MaterialPage(child: SignupPage()),
               if (state is LoginRoute) const MaterialPage(child: LoginPage()),
               if (state is OnBoardingRoute)
