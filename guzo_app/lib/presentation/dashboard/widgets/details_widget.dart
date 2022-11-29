@@ -88,7 +88,8 @@ class DetailsPersonNightCard extends StatelessWidget {
 }
 
 class BookNowCard extends StatelessWidget {
-  const BookNowCard({Key? key}) : super(key: key);
+  final int price;
+  const BookNowCard({Key? key, required this.price}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +101,7 @@ class BookNowCard extends StatelessWidget {
       height: height / 10,
       decoration: const BoxDecoration(),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        const DescriptionHeadline(color: Colors.black, text: "\$114"),
+        DescriptionHeadline(color: Colors.black, text: "\$$price"),
         Container(
           height: height / 16,
           width: width / 1.5,

@@ -65,11 +65,7 @@ class GuzoPages extends StatelessWidget {
                 const MaterialPage(child: HostPage()),
               if (state is SightDetailsRoute)
                 MaterialPage(child: SightDetailsPage(sight: state.sight)),
-              if (state is ExploreSightDetailsRoute)
-                MaterialPage(
-                    child: ExploreSightDetailsPage(
-                  exploreSight: state.exploreSight,
-                )),
+
               if (state is SearchRoute) const MaterialPage(child: SearchPage())
             ],
             onPopPage: (route, result) => route.didPop(result),

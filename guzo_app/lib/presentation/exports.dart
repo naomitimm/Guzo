@@ -19,14 +19,13 @@ export 'package:guzo_app/presentation/dashboard/favorite_page.dart';
 export 'package:guzo_app/presentation/dashboard/profile_page.dart';
 export 'package:guzo_app/presentation/dashboard/search_page.dart';
 export 'package:guzo_app/presentation/dashboard/details/sight_details_page.dart';
-export 'package:guzo_app/presentation/dashboard/details/explore_sight_details_page.dart';
 
 // models
-export '../../domain/nav_pages/search_page/explore_sights_model.dart';
-export 'package:guzo_app/domain/nav_pages/home_page/sight_model.dart';
-export 'package:guzo_app/domain/nav_pages/home_page/task_model.dart';
-export 'package:guzo_app/domain/nav_pages/search_page/catagory_model.dart';
-export 'package:guzo_app/domain/nav_pages/favorites_page/favorite_model.dart';
+export '../domain/dashboard/search_page/explore_sights_model.dart';
+export 'package:guzo_app/domain/dashboard/home_page/sight_model.dart';
+export 'package:guzo_app/domain/dashboard/home_page/task_model.dart';
+export 'package:guzo_app/domain/dashboard/search_page/catagory_model.dart';
+export 'package:guzo_app/domain/dashboard/favorites_page/favorite_model.dart';
 export 'package:guzo_app/domain/user/user_model.dart';
 
 // bloc

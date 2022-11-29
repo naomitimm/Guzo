@@ -11,6 +11,7 @@ class AlertDialogue {
         barrierDismissible: false,
         builder: ((context) {
           return AlertDialog(
+            elevation: 2.0,
             title: Text(
               title,
               style: GoogleFonts.montserrat(
@@ -26,7 +27,7 @@ class AlertDialogue {
                 textStyle: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
-                    fontWeight: FontWeight.w300),
+                    fontWeight: FontWeight.w400),
               ),
             ),
             actions: [
@@ -34,8 +35,32 @@ class AlertDialogue {
                   onPressed: () {
                     Navigator.of(context).pop(DialogueAction.cancel);
                   },
-                  child: const Text("Cancel")),
-              TextButton(onPressed: navigator, child: const Text("Confirm")),
+                  child: Text(
+                    "Cancel",
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  )),
+              const SizedBox(
+                width: 40,
+              ),
+              TextButton(
+                  onPressed: navigator,
+                  child: Text(
+                    "Logout",
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  )),
+              const SizedBox(
+                width: 5,
+              ),
             ],
           );
         }));

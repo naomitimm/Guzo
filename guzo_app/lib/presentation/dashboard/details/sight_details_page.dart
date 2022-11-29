@@ -157,7 +157,9 @@ class SightDetailsPage extends StatelessWidget {
                     SizedBox(
                       height: size.height / 25,
                     ),
-                    const BookNowCard()
+                    BookNowCard(
+                      price: sight.price,
+                    )
                   ],
                 ),
               ),

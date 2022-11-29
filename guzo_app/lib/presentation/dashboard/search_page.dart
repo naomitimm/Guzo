@@ -79,13 +79,13 @@ class _SearchPageState extends State<SearchPage> {
                 itemCount: 3,
                 itemBuilder: ((context, index) {
                   return SearchRecommendedCard(
-                      image: ExploreSight.historicalSites[index].imageUrl,
-                      location: ExploreSight.historicalSites[index].name,
-                      name: ExploreSight.historicalSites[index].location,
+                      image: Sight.historicalSites[index].imageUrl,
+                      location: Sight.historicalSites[index].name,
+                      name: Sight.historicalSites[index].location,
                       title: "Historical Sites",
                       dispatcher: () {
-                        navCubit.toExploreSightDetailsScreen(
-                            ExploreSight.historicalSites[index]);
+                        navCubit
+                            .toSightDetailsScreen(Sight.historicalSites[index]);
                       });
                 })),
           ),
