@@ -4,6 +4,7 @@ class SignupPage extends StatelessWidget {
   SignupPage({Key? key}) : super(key: key);
 
   final _userNameController = TextEditingController();
+  final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -46,6 +47,13 @@ class SignupPage extends StatelessWidget {
             child: Column(
               children: [
                 AuthTextField(
+                    controller: _fullNameController,
+                    hintText: "Full Name",
+                    validator: UserFormValidator.validateFullName),
+                const SizedBox(
+                  height: 25,
+                ),
+                AuthTextField(
                     controller: _userNameController,
                     hintText: "User Name",
                     validator: UserFormValidator.validateUserName),
@@ -69,7 +77,10 @@ class SignupPage extends StatelessWidget {
                 BlocConsumer<SignupBloc, SignupState>(
                   listener: (context, state) {
                     if (state is SignupSuccessful) {
-                      navCubit.toDashboardScreen();
+                      navCubit.toDashboardScreen(User(
+                          email: _emailController.text,
+                          fullName: _fullNameController.text,
+                          userName: _userNameController.text));
                     }
                     if (state is SignupFailed) {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -82,9 +93,10 @@ class SignupPage extends StatelessWidget {
                           lable: "Signup",
                           dispatcher: () {
                             context.read<SignupBloc>().add(SignupRequested(
-                                userName: _userNameController.text,
-                                email: _emailController.text,
-                                password: _passwordController.text));
+                                user: User(
+                                    email: _emailController.text,
+                                    fullName: _fullNameController.text,
+                                    userName: _userNameController.text)));
                           },
                           formKey: _formKey);
                     }

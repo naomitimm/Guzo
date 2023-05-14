@@ -2,7 +2,9 @@ import 'package:guzo_app/presentation/exports.dart';
 
 class SightDetailsPage extends StatelessWidget {
   final Sight sight;
-  const SightDetailsPage({Key? key, required this.sight}) : super(key: key);
+  final User user;
+  const SightDetailsPage({Key? key, required this.sight, required this.user})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,8 @@ class SightDetailsPage extends StatelessWidget {
                     left: size.width / 90,
                     child: IconButton(
                         onPressed: () {
-                          navCubit.toDashboardScreen();
+                          navCubit.toDashboardScreen(const User(
+                              email: "", fullName: "", userName: ""));
                         },
                         icon: const FaIcon(
                           FontAwesomeIcons.chevronLeft,

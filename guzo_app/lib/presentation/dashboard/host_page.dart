@@ -1,7 +1,8 @@
 import 'package:guzo_app/presentation/exports.dart';
 
 class HostPage extends StatefulWidget {
-  const HostPage({Key? key}) : super(key: key);
+  final User user;
+  const HostPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<HostPage> createState() => _HostPageState();
@@ -9,14 +10,25 @@ class HostPage extends StatefulWidget {
 
 class _HostPageState extends State<HostPage> {
   int myIndex = 0;
-  List myPages = [
-    const HomePage(),
-    const SearchPage(),
-    const FavoritePage(),
-    const ProfilePage()
-  ];
+  late User newUser;
+  @override
+  void initState() {
+    newUser = widget.user;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    List myPages = [
+      HomePage(
+        user: newUser,
+      ),
+      const SearchPage(),
+      const FavoritePage(),
+      ProfilePage(
+        user: newUser,
+      )
+    ];
     return Scaffold(
         body: myPages[myIndex],
         bottomNavigationBar: BottomNavigationBar(

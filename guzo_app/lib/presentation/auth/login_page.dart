@@ -62,7 +62,10 @@ class _LoginPageState extends State<LoginPage> {
             BlocConsumer<LoginBloc, LoginState>(
               listener: (context, state) {
                 if (state is LoginSuccesful) {
-                  navCubit.toDashboardScreen();
+                  navCubit.toDashboardScreen(User(
+                      email: _emailController.text,
+                      fullName: 'Naomi Timothy',
+                      userName: 'naomitimm'));
                 }
                 if (state is LoginFailed) {
                   ScaffoldMessenger.of(context).showSnackBar(

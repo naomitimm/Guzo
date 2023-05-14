@@ -13,7 +13,9 @@ class SignupRoute extends NavigationState {}
 
 class DashboardRoute extends NavigationState {
   final int tabIndex;
-  DashboardRoute({required this.tabIndex});
+  @override
+  final User user;
+  DashboardRoute({required this.tabIndex, required this.user});
 }
 
 class SightDetailsRoute extends NavigationState {

@@ -4,13 +4,9 @@ part of 'signup_bloc.dart';
 abstract class SignupEvent extends Equatable {}
 
 class SignupRequested extends SignupEvent {
-  SignupRequested(
-      {required this.userName, required this.email, required this.password});
-
-  final String userName;
-  final String email;
-  final String password;
+  final User user;
+  SignupRequested({required this.user});
 
   @override
-  List<Object?> get props => [userName, email, password];
+  List<Object?> get props => [user];
 }

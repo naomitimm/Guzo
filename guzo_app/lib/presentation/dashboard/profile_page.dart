@@ -2,18 +2,18 @@ import 'package:guzo_app/application/auth/logout/logout_bloc.dart';
 import 'package:guzo_app/presentation/dashboard/widgets/alert_dialogue.dart';
 import 'package:guzo_app/presentation/exports.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ProfilePage extends StatelessWidget {
+  final User user;
+  ProfilePage({Key? key, required this.user}) : super(key: key);
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   final cityController = TextEditingController();
+
   final bioController = TextEditingController();
+
   final nameController = TextEditingController();
+
   final handleController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final navCubit = context.read<NavigationCubit>();
@@ -42,7 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     return IconButton(
                         onPressed: () async {
                           await AlertDialogue.logoutDialogue(context, "Logout",
-                              "Are you sure you want to log out of john_d?",
+                              "Are you sure you want to log out of ${user.userName}",
                               (() {
                             context.read<LogoutBloc>().add(LogoutRequested());
                           }));
@@ -75,11 +75,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "John Doe",
+                            user.fullName,
                             style: GuzoTheme.lightModeTextTheme.titleSmall,
                           ),
                           Text(
-                            "@john_d",
+                            user.userName,
                             style: GuzoTheme.lightModeTextTheme.labelSmall,
                           ),
                         ],
@@ -116,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ProfileInfoCard(
                     icon: IconButton(
                         onPressed: () {}, icon: const Icon(Icons.date_range)),
-                    text: "Joined in July 2022",
+                    text: "Joined in May2023",
                     dispatcher: () {},
                   ),
                   ProfileInfoCard(

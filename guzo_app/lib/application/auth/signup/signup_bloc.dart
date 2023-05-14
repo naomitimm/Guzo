@@ -14,7 +14,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     try {
       emit(const SigningUp());
       await Future.delayed(const Duration(seconds: 2));
-      emit(const SignupSuccessful());
+      emit(SignupSuccessful(loggedUser: event.user));
     } on Error catch (error) {
       emit(SignupFailed(error: error));
       return;

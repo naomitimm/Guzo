@@ -72,17 +72,14 @@ class FavoritesCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                      right: 0,
-                      bottom: 0,
-                      child: IconButton(
-                          onPressed: dispatcher,
-                          icon: const Icon(
-                            Icons.delete,
-                            color: Color.fromARGB(255, 0, 117, 94),
-                          )))
                 ],
-              )
+              ),
+              IconButton(
+                  onPressed: dispatcher,
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Color.fromARGB(255, 0, 117, 94),
+                  ))
             ],
           ),
         ),

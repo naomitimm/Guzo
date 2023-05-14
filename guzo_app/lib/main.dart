@@ -61,9 +61,16 @@ class GuzoPages extends StatelessWidget {
               if (state is OnBoardingRoute)
                 const MaterialPage(child: OnBoardingPage()),
               if (state is DashboardRoute)
-                const MaterialPage(child: HostPage()),
+                MaterialPage(
+                    child: HostPage(
+                  user: state.user,
+                )),
               if (state is SightDetailsRoute)
-                MaterialPage(child: SightDetailsPage(sight: state.sight)),
+                MaterialPage(
+                    child: SightDetailsPage(
+                  sight: state.sight,
+                  user: const User(email: "", fullName: "", userName: ""),
+                )),
               if (state is ExploreSightDetailsRoute)
                 MaterialPage(
                     child: ExploreSightDetailsPage(

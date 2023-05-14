@@ -14,13 +14,13 @@ class SignupInitial extends SignupState {
 
 class SigningUp extends SignupState {
   const SigningUp();
-
   @override
   List<Object?> get props => [];
 }
 
 class SignupSuccessful extends SignupState {
-  const SignupSuccessful();
+  final User? loggedUser;
+  const SignupSuccessful({required this.loggedUser});
 
   @override
   List<Object?> get props => [];

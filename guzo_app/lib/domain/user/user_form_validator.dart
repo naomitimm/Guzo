@@ -11,6 +11,18 @@ class UserFormValidator {
     return null;
   }
 
+  static String? validateFullName(String? fullName) {
+    if (fullName == null || fullName.trim().isEmpty) {
+      return "Your full Name is required";
+    }
+
+    if (!RegExp("[A-Za-z] [A-Za-z]").hasMatch(fullName)) {
+      return "Please enter a valid name";
+    }
+
+    return null;
+  }
+
   static String? validatePassword(String? password) {
     if (password == null || password.trim().isEmpty) {
       return "Password field can not be blank";
